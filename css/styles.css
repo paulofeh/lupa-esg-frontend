@@ -1465,7 +1465,7 @@ a:active {
   background-color: var(--color-primary);
   color: white;
   padding: 4rem 1rem 1rem;
-  margin-top: 0;
+  margin-top: 6rem;
 }
 
 .footer-container {

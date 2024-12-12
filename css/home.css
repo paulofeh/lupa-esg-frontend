@@ -89,7 +89,7 @@
 }
 
 .search-result-item:hover {
-  background-color: var(--color-light);
+  background-color: var(--color-diversity-light);
 }
 
 .search-result-item + .search-result-item {
@@ -249,7 +249,7 @@
 
 /* Card de empresa */
 .company-card {
-  background: white;
+  background: var(--color-light);
   border-radius: 1rem;
   padding: 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -258,6 +258,7 @@
 
 .company-card:hover {
   transform: translateY(-2px);
+  background-color: var(--color-diversity-light);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -353,7 +354,7 @@
 }
 
 .direct-search-card {
-  background: white;
+  background: var(--color-diversity-primary);
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -362,16 +363,17 @@
 .direct-search-title {
   display: flex;
   align-items: center;
+  justify-content: center; /* Center horizontally */
   gap: 0.75rem;
   font-family: var(--font-heading-alternate);
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: white;
   margin-bottom: 1.5rem;
 }
 
 .direct-search-title i {
-  color: var(--color-primary);
+  color: white;
   font-size: 1.5rem;
 }
 
@@ -391,11 +393,6 @@
   padding: 0.75rem 2rem;
 }
 
-.filter-pill.active {
-  background-color: #2563eb;
-  color: white;
-}
-
 /* Resultados */
 .results-section {
   padding: 2rem 0;
@@ -412,42 +409,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
-}
-
-/* Cards */
-.company-card {
-  background: white;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.company-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.company-card__header {
-  margin-bottom: 1rem;
-}
-
-.company-card__title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.company-card__sector {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: #666;
-}
-
-.company-card__practices {
-  margin: 1rem 0;
 }
 
 .practices-grid {
@@ -469,7 +430,7 @@
 
 .practice-badge.active {
   background: #dbeafe;
-  color: #2563eb;
+  color: var(--color-primary);
 }
 
 .company-card__link {
@@ -477,16 +438,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
-  background: #f8fafc;
+  background: var(--color-primary);
   border-radius: 0.5rem;
-  color: #2563eb;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   transition: background-color 0.2s ease;
 }
 
 .company-card__link:hover {
-  background: #f1f5f9;
+  background: var(--color-diversity-primary);
+  color: white;
 }
 
 /* Estados de loading e erro */
@@ -780,5 +742,5 @@
   }
 }
 .diversity-stat {
-  color: var(--color-diversity-primary)
+  color: var(--color-diversity-primary);
 }
