@@ -374,7 +374,7 @@ function getPraticaLabel(pratica) {
 }
 
 const api = {
-  API_BASE_URL: "http://localhost:8000/api/v1",
+  API_BASE_URL: "https://lupaesg-api.onrender.com/api/v1",
 
   // Busca dados detalhados de uma empresa
   async fetchCompanyData(codCvm) {
@@ -1904,48 +1904,70 @@ const api = {
       const response = await fetch(`${this.API_BASE_URL}/companies/stats`);
       if (!response.ok) throw new Error("Failed to fetch stats");
       const { dados } = await response.json();
-  
+
       // Função auxiliar para animar números
       function animateValue(element, start, end, duration) {
         const startTimestamp = performance.now();
-        const isPercentage = element.textContent.includes('%');
-        
+        const isPercentage = element.textContent.includes("%");
+
         const animate = (currentTimestamp) => {
           const elapsed = currentTimestamp - startTimestamp;
           const progress = Math.min(elapsed / duration, 1);
-          
+
           // Easing function para movimento mais suave
           const easeOutQuart = 1 - Math.pow(1 - progress, 4);
           const current = Math.floor(start + (end - start) * easeOutQuart);
-          
-          element.textContent = isPercentage ? `${current}%` : current.toLocaleString('pt-BR');
-          
+
+          element.textContent = isPercentage
+            ? `${current}%`
+            : current.toLocaleString("pt-BR");
+
           if (progress < 1) {
             requestAnimationFrame(animate);
           }
         };
-        
+
         requestAnimationFrame(animate);
       }
-  
+
       // Atualiza os elementos com animação
       const elements = {
-        empresasTotal: document.querySelector('.hero-stat-group--esg .hero-stat-item:nth-child(1) .hero-stat-value'),
-        empresasLabel: document.querySelector('.hero-stat-group--esg .hero-stat-item:nth-child(1) .hero-stat-label'),
-        
-        relatorioTotal: document.querySelector('.hero-stat-group--esg .hero-stat-item:nth-child(2) .hero-stat-value'),
-        relatorioLabel: document.querySelector('.hero-stat-group--esg .hero-stat-item:nth-child(2) .hero-stat-label'),
-        
-        geeTotal: document.querySelector('.hero-stat-group--esg .hero-stat-item:nth-child(3) .hero-stat-value'),
-        geeLabel: document.querySelector('.hero-stat-group--esg .hero-stat-item:nth-child(3) .hero-stat-label'),
-        
-        generoValue: document.querySelector('.hero-stat-group--diversity .hero-stat-item:nth-child(1) .hero-stat-value'),
-        generoLabel: document.querySelector('.hero-stat-group--diversity .hero-stat-item:nth-child(1) .hero-stat-label'),
-        
-        racaValue: document.querySelector('.hero-stat-group--diversity .hero-stat-item:nth-child(2) .hero-stat-value'),
-        racaLabel: document.querySelector('.hero-stat-group--diversity .hero-stat-item:nth-child(2) .hero-stat-label')
+        empresasTotal: document.querySelector(
+          ".hero-stat-group--esg .hero-stat-item:nth-child(1) .hero-stat-value"
+        ),
+        empresasLabel: document.querySelector(
+          ".hero-stat-group--esg .hero-stat-item:nth-child(1) .hero-stat-label"
+        ),
+
+        relatorioTotal: document.querySelector(
+          ".hero-stat-group--esg .hero-stat-item:nth-child(2) .hero-stat-value"
+        ),
+        relatorioLabel: document.querySelector(
+          ".hero-stat-group--esg .hero-stat-item:nth-child(2) .hero-stat-label"
+        ),
+
+        geeTotal: document.querySelector(
+          ".hero-stat-group--esg .hero-stat-item:nth-child(3) .hero-stat-value"
+        ),
+        geeLabel: document.querySelector(
+          ".hero-stat-group--esg .hero-stat-item:nth-child(3) .hero-stat-label"
+        ),
+
+        generoValue: document.querySelector(
+          ".hero-stat-group--diversity .hero-stat-item:nth-child(1) .hero-stat-value"
+        ),
+        generoLabel: document.querySelector(
+          ".hero-stat-group--diversity .hero-stat-item:nth-child(1) .hero-stat-label"
+        ),
+
+        racaValue: document.querySelector(
+          ".hero-stat-group--diversity .hero-stat-item:nth-child(2) .hero-stat-value"
+        ),
+        racaLabel: document.querySelector(
+          ".hero-stat-group--diversity .hero-stat-item:nth-child(2) .hero-stat-label"
+        ),
       };
-  
+
       // Atualiza estatísticas ESG
       if (elements.empresasTotal) {
         elements.empresasLabel.innerHTML = `
@@ -1953,30 +1975,54 @@ const api = {
         `;
         animateValue(elements.empresasTotal, 0, dados.empresas.total, 1500);
       }
-  
+
       if (elements.relatorioTotal) {
         elements.relatorioLabel.innerHTML = `
-          <span class="hero-stat-absolute">${dados.praticas_esg.relatorio.total.toLocaleString('pt-BR')} empresas</span>
+          <span class="hero-stat-absolute">${dados.praticas_esg.relatorio.total.toLocaleString(
+            "pt-BR"
+          )} empresas</span>
           publicam relatório ESG
         `;
-        animateValue(elements.relatorioTotal, 0, Math.round(dados.praticas_esg.relatorio.percentual), 1500);
+        animateValue(
+          elements.relatorioTotal,
+          0,
+          Math.round(dados.praticas_esg.relatorio.percentual),
+          1500
+        );
       }
-  
+
       if (elements.geeTotal) {
         elements.geeLabel.innerHTML = `
-          <span class="hero-stat-absolute">${dados.praticas_esg.inventario_gee.total.toLocaleString('pt-BR')} empresas</span>
+          <span class="hero-stat-absolute">${dados.praticas_esg.inventario_gee.total.toLocaleString(
+            "pt-BR"
+          )} empresas</span>
           divulgam inventário GEE
         `;
-        animateValue(elements.geeTotal, 0, Math.round(dados.praticas_esg.inventario_gee.percentual), 1500);
+        animateValue(
+          elements.geeTotal,
+          0,
+          Math.round(dados.praticas_esg.inventario_gee.percentual),
+          1500
+        );
       }
-  
+
       // Atualiza estatísticas de diversidade
       if (elements.generoValue) {
-        animateValue(elements.generoValue, 0, Math.round(dados.diversidade.representatividade_feminina.percentual), 1500);
+        animateValue(
+          elements.generoValue,
+          0,
+          Math.round(dados.diversidade.representatividade_feminina.percentual),
+          1500
+        );
       }
-  
+
       if (elements.racaValue) {
-        animateValue(elements.racaValue, 0, Math.round(dados.diversidade.representatividade_racial.percentual), 1500);
+        animateValue(
+          elements.racaValue,
+          0,
+          Math.round(dados.diversidade.representatividade_racial.percentual),
+          1500
+        );
       }
     } catch (error) {
       console.error("Error fetching stats:", error);
