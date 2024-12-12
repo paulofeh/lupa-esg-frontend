@@ -195,6 +195,13 @@
       <section class="esg-section">
         <div class="esg-container">
           <h2 class="section-title">Práticas de reporte</h2>
+          <p class="section-description">
+            <i class="ph-bold ph-info"></i>
+            Aqui você encontra dados sobre a adoção ou não de práticas de
+            reporte ESG pelas empresas. A CMV utiliza um modelo "pratique ou
+            explique": cada aba traz informações detalhadas sobre uma prática ou
+            as explicações fornecidas pelas empresas para a não adoção.
+          </p>
           <div class="esg-details">
             <!-- Seção Relatório -->
             <div class="esg-detail-section" data-status="true" id="esg-report">
@@ -202,7 +209,7 @@
                 <div class="esg-badge-icon">
                   <i class="ph-bold ph-file-text"></i>
                 </div>
-                <h3>Relatório ESG</h3>
+                <h3>Divulga relatório ESG periódico?</h3>
                 <i class="ph-bold ph-caret-down"></i>
               </div>
               <div class="esg-detail-content">
@@ -249,7 +256,7 @@
                 <div class="esg-badge-icon">
                   <i class="ph-bold ph-check-square"></i>
                 </div>
-                <h3>Auditoria externa</h3>
+                <h3>Os relatórios são auditados?</h3>
                 <i class="ph-bold ph-caret-down"></i>
               </div>
 
@@ -271,7 +278,7 @@
                 <div class="esg-badge-icon">
                   <i class="ph-bold ph-chart-line-up"></i>
                 </div>
-                <h3>Inventário de emissões</h3>
+                <h3>Divulga inventário de emissões de gases?</h3>
                 <i class="ph-bold ph-caret-down"></i>
               </div>
 
@@ -359,7 +366,7 @@
                 <div class="esg-badge-icon">
                   <i class="ph-bold ph-chart-scatter"></i>
                 </div>
-                <h3>Matriz de materialidade</h3>
+                <h3>Considera a divulgação de matriz de materialidade?</h3>
                 <i class="ph-bold ph-caret-down"></i>
               </div>
 
@@ -453,7 +460,7 @@
                 <div class="esg-badge-icon">
                   <i class="ph-bold ph-globe-hemisphere-west"></i>
                 </div>
-                <h3>Objetivos de Desenvolvimento Sustentável (ODS)</h3>
+                <h3>Considera Objetivos de Desenvolvimento Sustentável?</h3>
                 <i class="ph-bold ph-caret-down"></i>
               </div>
 
@@ -558,7 +565,7 @@
                 <div class="esg-badge-icon">
                   <i class="ph-bold ph-thermometer"></i>
                 </div>
-                <h3>Recomendações TCFD</h3>
+                <h3>Considera recomendações da TCFD?</h3>
                 <i class="ph-bold ph-caret-down"></i>
               </div>
 
@@ -640,7 +647,12 @@
       <section class="diversity-section">
         <div class="diversity-container">
           <h2 class="section-title">Diversidade, equidade e inclusão</h2>
-
+          <p class="section-description">
+            <i class="ph-bold ph-info"></i>
+            Aqui você encontra dados sobre a composição de gênero e raça/cor,
+            seguindo a classificação determinada pela CVM e obtidos de forma
+            direta, sem o uso de inteligência artificial.
+          </p>
           <!-- Grid de cards com principais indicadores -->
           <div class="diversity-highlights">
             <!-- Quadro de Funcionários -->
@@ -719,7 +731,11 @@
             <h3 class="diversity-subtitle">
               Evolução da representatividade feminina
             </h3>
-
+            <p class="section-description">
+              <i class="ph-bold ph-info"></i>
+              Razão entre o número de mulheres e o total de colaboradores que
+              forneceram resposta à pergunta.
+            </p>
             <!-- Tabs de navegação -->
             <div class="trend-tabs">
               <button class="trend-tab active" data-segment="admin">
@@ -777,7 +793,12 @@
               <h3 class="diversity-subtitle">
                 Evolução da representatividade racial
               </h3>
-
+              <p class="section-description">
+                <i class="ph-bold ph-info"></i>
+                Razão entre o número de pessoas não-brancas (pardos, pretos,
+                amarelos e indígenas) e o total de colaboradores que forneceram
+                resposta à pergunta.
+              </p>
               <!-- Tabs de navegação -->
               <div class="race-trend-tabs">
                 <button class="race-trend-tab active" data-segment="admin">
@@ -809,14 +830,45 @@
           </div>
         </div>
       </section>
+      <section class="page-disclaimer">
+        <div class="disclaimer-container">
+          <div class="disclaimer-content">
+            <i class="ph-bold ph-warning-circle disclaimer-icon"></i>
+            <div class="disclaimer-text">
+              <h2 class="disclaimer-title">Atenção!</h2>
+              <ul class="disclaimer-list">
+                <li>
+                  Os dados apresentados nesta página são extraídos do Formulário
+                  de Referência mais recente disponível na CVM.
+                </li>
+                <li>
+                  Parte do conteúdo foi gerado automaticamente usando IA.
+                  Recomendamos sempre verificar as informações diretamente nas
+                  fontes oficiais.
+                </li>
+                <li>
+                  Esta plataforma não substitui a leitura do documento original
+                  e não deve ser usada como única fonte para tomada de decisões.
+                </li>
+                <li>
+                  Em caso de divergências entre as informações apresentadas aqui
+                  e o documento oficial, considere sempre o documento original
+                  da CVM.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+    <!-- Footer -->
     <footer class="main-footer">
       <div class="footer-container">
         <!-- Logo e descrição -->
         <div class="footer-brand">
           <div class="footer-logo">lupa(ESG)</div>
           <p class="footer-description">
-            Democratizando o acesso a informações ESG de empresas brasileiras
+            Ambiente, sociedade e governança na ponta dos dados
           </p>
         </div>
 
@@ -824,10 +876,7 @@
         <div class="footer-links">
           <h3>Links Úteis</h3>
           <ul>
-            <li><a href="#">Sobre o projeto</a></li>
-            <li><a href="#">Como usar</a></li>
-            <li><a href="#">Metodologia</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="/sobre.html">Sobre o projeto</a></li>
           </ul>
         </div>
 
@@ -838,8 +887,11 @@
             <li>
               <a href="https://www.gov.br/cvm/pt-br" target="_blank">CVM</a>
             </li>
-            <li><a href="#">Formulários de Referência</a></li>
-            <li><a href="#">Documentos ESG</a></li>
+            <li>
+              <a href="https://dados.cvm.gov.br/dataset/cia_aberta-doc-fre"
+                >Dados abertos</a
+              >
+            </li>
           </ul>
         </div>
 
@@ -847,7 +899,7 @@
         <div class="footer-contact">
           <h3>Contato</h3>
           <p>Tem sugestões ou encontrou algum erro?</p>
-          <a href="mailto:contato@lupaesg.com.br" class="footer-button">
+          <a href="mailto:fehla@proton.me" class="footer-button">
             Entre em contato
           </a>
         </div>
@@ -856,9 +908,7 @@
       <!-- Subfooter -->
       <div class="subfooter">
         <div class="subfooter-container">
-          <p class="copyright">
-            © 2024 lupa(ESG). Dados abertos para consulta pública.
-          </p>
+          <p class="copyright">© 2024 Paulo Fehlauer</p>
           <p class="disclaimer">
             Este é um projeto independente e não possui vínculo com a CVM ou
             qualquer outra entidade governamental.

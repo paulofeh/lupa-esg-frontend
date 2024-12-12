@@ -1465,7 +1465,7 @@ a:active {
   background-color: var(--color-primary);
   color: white;
   padding: 4rem 1rem 1rem;
-  margin-top: 6rem;
+  margin-top: 0;
 }
 
 .footer-container {
@@ -1717,4 +1717,156 @@ a:active {
   opacity: 0.7;
   text-align: center;
   padding: 0.5rem 0;
+}
+
+/* Bloco de texto explicativo */
+.section-description {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  opacity: 0.9;
+  max-width: 65ch;
+  margin: -2rem auto 3rem;
+  padding: 1rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 0.5rem;
+}
+
+/* Ícone */
+.section-description i {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  margin-top: 0.125rem; /* Ajuste fino do alinhamento vertical */
+  opacity: 0.7;
+}
+
+/* Variação para seção ESG */
+.esg-section .section-description {
+  color: var(--color-text);
+  margin: -1.5rem 0 2.5rem;
+  max-width: none;
+  background-color: rgba(6, 78, 59, 0.03);
+}
+
+/* Variação para seção de diversidade */
+.diversity-section .section-description {
+  color: var(--color-diversity-text);
+  margin: -1.5rem 0 2.5rem;
+  background-color: rgba(107, 53, 82, 0.03);
+}
+
+.diversity-section .section-description i {
+  color: var(--color-diversity-primary);
+}
+
+/* Versão mais compacta para uso dentro de cards */
+.section-description--compact {
+  font-size: 0.875rem;
+  margin: 0 0 1.5rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .section-description {
+    font-size: 0.875rem;
+    margin: -1rem auto 2rem;
+    padding: 0.875rem 1rem;
+  }
+}
+
+/* Container do disclaimer */
+.page-disclaimer {
+  margin: 0;
+  padding: 6rem 1rem;
+  background-color: var(--color-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.disclaimer-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.disclaimer-content {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-esg-border);
+}
+
+.disclaimer-icon {
+  flex-shrink: 0;
+  color: var(--color-warning);
+  font-size: 1.5rem;
+  margin-top: 0.125rem;
+}
+
+.disclaimer-text {
+  flex: 1;
+}
+
+.disclaimer-title {
+  font-family: var(--font-heading-alternate);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-warning);
+}
+
+.disclaimer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.disclaimer-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+.disclaimer-list li:last-child {
+  margin-bottom: 0;
+}
+
+.disclaimer-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-warning);
+  opacity: 0.7;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .page-disclaimer {
+    margin-top: 3rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .disclaimer-content {
+    padding: 1.25rem;
+  }
+
+  .disclaimer-icon {
+    font-size: 1.25rem;
+  }
+
+  .disclaimer-title {
+    font-size: 1rem;
+  }
+
+  .disclaimer-list li {
+    font-size: 0.875rem;
+  }
 }

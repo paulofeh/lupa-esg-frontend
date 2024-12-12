@@ -11,6 +11,10 @@
   margin-top: 1rem;
 }
 
+.hero-about {
+  max-width: 10ch;
+}
+
 /* Features grid */
 .features-grid {
   display: grid;
@@ -163,7 +167,7 @@
 /* Contribution grid */
 .contribution-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
