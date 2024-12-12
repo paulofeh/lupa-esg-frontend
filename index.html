@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Análise de dados ESG de empresas brasileiras baseada no Formulário de Referência."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lupa(ESG)" />
+    <meta
+      property="og:description"
+      content="Análise de dados ESG de empresas brasileiras baseada no Formulário de Referência."
+    />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto:wght@300;400;500;700;900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/home.css" />
+
+    <!-- Ícones -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <title>Lupa(ESG)</title>
+  </head>
+  <body>
+    <!-- Header Fixo -->
+    <header class="header">
+      <div class="header__container">
+        <a href="/" class="header__logo">lupa(ESG)</a>
+        <nav class="header__nav">
+          <a href="/#filters-section" class="header__nav-link js-scroll-link"
+            >Explorar dados</a
+          >
+          <a href="/sobre.html" class="header__nav-link">Sobre o projeto</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Container Principal -->
+    <main class="main-container">
+      <!-- Hero Section -->
+      <section class="hero-main">
+        <div class="hero-main__content">
+          <!-- Área da marca centralizada -->
+          <div class="hero-main__brand">
+            <h1 class="hero-main__logo">lupa(ESG)</h1>
+            <p class="hero-main__tagline">
+              Ambiente, sociedade e governança na ponta dos dados
+            </p>
+          </div>
+
+          <!-- Descrição e CTA -->
+          <p class="hero-main__description">
+            Explore dados ESG de empresas brasileiras de capital aberto de forma
+            simples e intuitiva. Uma ferramenta gratuita para análise de
+            práticas ambientais, sociais e de governança.
+          </p>
+          <a href="#filters-section" class="hero-main__cta">
+            Explorar base de dados
+            <i class="ph ph-arrow-down"></i>
+          </a>
+
+          <!-- Estatísticas em linhas -->
+          <div class="hero-stats">
+            <!-- Grupo ESG -->
+            <div class="hero-stat-group hero-stat-group--esg">
+              <h2 class="hero-stat-category">
+                <i class="ph ph-globe"></i>
+                Cobertura ESG
+              </h2>
+              <div class="hero-stat-items">
+                <div class="hero-stat-item">
+                  <div class="hero-stat-value">0</div>
+                  <div class="hero-stat-label">empresas analisadas</div>
+                </div>
+                <div class="hero-stat-item">
+                  <div class="hero-stat-value">0%</div>
+                  <div class="hero-stat-absolute"></div>
+                  <!-- Novo elemento para valor absoluto -->
+                  <div class="hero-stat-label">publicam relatório ESG</div>
+                </div>
+                <div class="hero-stat-item">
+                  <div class="hero-stat-value">0%</div>
+                  <div class="hero-stat-absolute"></div>
+                  <!-- Novo elemento para valor absoluto -->
+                  <div class="hero-stat-label">divulgam inventário GEE</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo Diversidade -->
+            <div class="hero-stat-group hero-stat-group--diversity">
+              <h2 class="hero-stat-category">
+                <i class="ph ph-users-three"></i>
+                Diversidade
+              </h2>
+              <div class="hero-stat-items">
+                <div class="hero-stat-item">
+                  <div class="hero-stat-value">28%</div>
+                  <div class="hero-stat-label diversity-stat">
+                    dos colaboradores são mulheres
+                  </div>
+                </div>
+                <div class="hero-stat-item">
+                  <div class="hero-stat-value">34%</div>
+                  <div class="hero-stat-label diversity-stat">
+                    dos colaboradores são não-brancos
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filtros Principais -->
+          <div class="filters-section" id="filters-section">
+            <h2 class="filters-title">Filtros de Exploração</h2>
+
+            <!-- Filtros de Setor -->
+            <div class="sector-filters">
+              <div class="select-group">
+                <label for="setor">Setor</label>
+                <select id="setor" class="filter-select">
+                  <option value="">Todos os setores</option>
+                </select>
+              </div>
+
+              <div class="select-group">
+                <label for="subsetor">Subsetor</label>
+                <select id="subsetor" class="filter-select" disabled>
+                  <option value="">Selecione um setor primeiro</option>
+                </select>
+              </div>
+
+              <div class="select-group">
+                <label for="segmento">Segmento</label>
+                <select id="segmento" class="filter-select" disabled>
+                  <option value="">Selecione um subsetor primeiro</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Filtros ESG (Pills) -->
+            <div class="esg-filters">
+              <h3 class="filters-subtitle">Práticas ESG</h3>
+              <div class="pills-container">
+                <button class="filter-pill" data-filter="relatorio">
+                  <i class="ph ph-file-text"></i>
+                  Publica relatório ESG
+                </button>
+
+                <button class="filter-pill" data-filter="materialidade">
+                  <i class="ph ph-chart-scatter"></i>
+                  Considera matriz de materialidade
+                </button>
+
+                <button class="filter-pill" data-filter="ods">
+                  <i class="ph ph-globe-hemisphere-west"></i>
+                  Considera ODS
+                </button>
+
+                <button class="filter-pill" data-filter="tcfd">
+                  <i class="ph ph-thermometer"></i>
+                  Considera TCFD
+                </button>
+
+                <button class="filter-pill" data-filter="gee">
+                  <i class="ph ph-chart-line-up"></i>
+                  Divulga inventário GEE
+                </button>
+              </div>
+            </div>
+            <div class="filter-buttons">
+              <button id="explore-button" class="search-button">
+                <i class="ph ph-magnifying-glass"></i>
+                Explorar empresas
+              </button>
+              <button id="clear-filters-button" class="clear-button">
+                <i class="ph ph-eraser"></i>
+                Limpar filtros
+              </button>
+            </div>
+          </div>
+          <!-- Área de Busca Textual -->
+          <div class="direct-search-section">
+            <div class="direct-search-card">
+              <h3 class="direct-search-title">
+                <i class="ph ph-buildings"></i>
+                Prefere buscar uma empresa específica?
+              </h3>
+              <div class="search-container">
+                <div class="search-box">
+                  <i class="ph ph-magnifying-glass"></i>
+                  <input
+                    type="text"
+                    id="company-search"
+                    class="search-input"
+                    placeholder="Digite a razão social..."
+                    autocomplete="off"
+                  />
+                </div>
+                <div id="search-results" class="search-results"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Área de Resultados -->
+      <section class="results-section">
+        <div class="results-container">
+          <!-- Cabeçalho dos resultados -->
+          <div class="results-header">
+            <h2 class="results-title">Resultados da busca</h2>
+            <div class="results-stats">
+              <span class="results-count">0</span> empresas encontradas
+            </div>
+          </div>
+
+          <!-- Grid de resultados -->
+          <div class="results-grid">
+            <!-- Os cards das empresas serão inseridos aqui via JavaScript -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-container">
+        <!-- Logo e descrição -->
+        <div class="footer-brand">
+          <div class="footer-logo">lupa(ESG)</div>
+          <p class="footer-description">
+            Democratizando o acesso a informações ESG de empresas brasileiras
+          </p>
+        </div>
+
+        <!-- Links úteis -->
+        <div class="footer-links">
+          <h3>Links Úteis</h3>
+          <ul>
+            <li><a href="#">Sobre o projeto</a></li>
+            <li><a href="#">Como usar</a></li>
+            <li><a href="#">Metodologia</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Fontes de dados -->
+        <div class="footer-links">
+          <h3>Fontes</h3>
+          <ul>
+            <li>
+              <a href="https://www.gov.br/cvm/pt-br" target="_blank">CVM</a>
+            </li>
+            <li><a href="#">Formulários de Referência</a></li>
+            <li><a href="#">Documentos ESG</a></li>
+          </ul>
+        </div>
+
+        <!-- Contato -->
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <p>Tem sugestões ou encontrou algum erro?</p>
+          <a href="mailto:contato@lupaesg.com.br" class="footer-button">
+            Entre em contato
+          </a>
+        </div>
+      </div>
+
+      <!-- Subfooter -->
+      <div class="subfooter">
+        <div class="subfooter-container">
+          <p class="copyright">
+            © 2024 lupa(ESG). Dados abertos para consulta pública.
+          </p>
+          <p class="disclaimer">
+            Este é um projeto independente e não possui vínculo com a CVM ou
+            qualquer outra entidade governamental.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Primeiro carregamos as bibliotecas externas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+    <!-- Scripts da aplicação -->
+    <script src="js/api.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

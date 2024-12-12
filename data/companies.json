@@ -1,0 +1,773 @@
+[{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e1b"
+  },
+  "cod_cvm": 1023,
+  "cnpj": "00.000.000/0001-91",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.871Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "O Banco do Brasil atua como banco comercial múltiplo, oferecendo uma ampla gama de serviços financeiros para diversos segmentos de clientes, incluindo pessoas físicas, jurídicas, atacado, private e setor público. Adicionalmente, o banco possui forte atuação no agronegócio.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:43:02.044Z"
+      }
+    }
+  },
+  "razao_social": "BCO BRASIL S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.871Z"
+  },
+  "segmento": "Bancos",
+  "setor": "Financeiro",
+  "subsetor": "Intermediários Financeiros"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e1d"
+  },
+  "cod_cvm": 14206,
+  "cnpj": "00.000.208/0001-00",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.878Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "O BRB - Banco de Brasília S.A. atua como um banco múltiplo, oferecendo uma ampla gama de serviços financeiros, desde operações bancárias tradicionais até gestão de fundos de investimento e corretagem de seguros. A descrição detalhada de suas atividades no Formulário de Referência confirma sua atuação principal como intermediário financeiro.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:44:14.835Z"
+      }
+    }
+  },
+  "razao_social": "BRB BANCO DE BRASILIA S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.878Z"
+  },
+  "segmento": "Bancos",
+  "setor": "Financeiro",
+  "subsetor": "Intermediários Financeiros"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e1f"
+  },
+  "cod_cvm": 2437,
+  "cnpj": "00.001.180/0001-26",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.885Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A Eletrobras atua na geração, transmissão e comercialização de energia elétrica, sendo a maior empresa do setor na América Latina e respondendo por 22% da capacidade instalada no Brasil.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:45:19.251Z"
+      }
+    }
+  },
+  "razao_social": "CENTRAIS ELET BRAS S.A. - ELETROBRAS",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.885Z"
+  },
+  "segmento": "Energia Elétrica",
+  "setor": "Utilidade Pública",
+  "subsetor": "Energia Elétrica"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e21"
+  },
+  "cod_cvm": 14451,
+  "cnpj": "00.070.698/0001-11",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.892Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A CEB atua nas atividades de geração, transmissão, distribuição e comercialização de energia elétrica, o que se encaixa perfeitamente no setor de Utilidade Pública, subsetor de Energia Elétrica e segmento de Energia Elétrica.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:46:35.617Z"
+      }
+    }
+  },
+  "razao_social": "COMPANHIA ENERGÉTICA DE BRASÍLIA - CEB",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.892Z"
+  },
+  "segmento": "Energia Elétrica",
+  "setor": "Utilidade Pública",
+  "subsetor": "Energia Elétrica"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e23"
+  },
+  "cod_cvm": 26190,
+  "cnpj": "00.080.671/0001-00",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.899Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A Caramuru atua de forma integrada na cadeia de valor do agronegócio, desde a originação e processamento de grãos até a produção e comercialização de biodiesel e produtos de consumo. Suas atividades se enquadram perfeitamente no setor de Consumo Não Cíclico, no subsetor de Alimentos Processados e no segmento de Grãos e Derivados, considerando seu amplo portfólio de produtos derivados de soja, milho e girassol.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:47:49.225Z"
+      }
+    }
+  },
+  "razao_social": "CARAMURU ALIMENTOS S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.899Z"
+  },
+  "segmento": "Grãos e Derivados",
+  "setor": "Consumo Não Cíclico",
+  "subsetor": "Alimentos Processados"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e25"
+  },
+  "cod_cvm": 14613,
+  "cnpj": "00.192.769/0001-59",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.906Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua exclusivamente na construção, comercialização e/ou locação de unidades autônomas, enquadrando-se perfeitamente no setor, subsetor e segmento selecionados.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:49:34.848Z"
+      }
+    }
+  },
+  "razao_social": "NEUMARKT TRADE AND FINANCIAL CENTER S/A",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.906Z"
+  },
+  "segmento": "Incorporações",
+  "setor": "Consumo Cíclico",
+  "subsetor": "Construção Civil"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e27"
+  },
+  "cod_cvm": 26174,
+  "cnpj": "00.194.724/0001-13",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.912Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua na geração de energia a partir de fontes renováveis como solar, eólica e hídrica. Essa informação está presente em todo o texto do formulário de referência. Além da geração, a empresa também opera e comercializa energia. Portanto, a classificação em \"Utilidade Pública\", \"Energia Elétrica\" e \"Energia Elétrica\" é a que melhor representa o core business da AES Brasil.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:51:46.254Z"
+      }
+    }
+  },
+  "razao_social": "AUREN OPERAÇÕES S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.912Z"
+  },
+  "segmento": "Energia Elétrica",
+  "setor": "Utilidade Pública",
+  "subsetor": "Energia Elétrica"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e29"
+  },
+  "cod_cvm": 26069,
+  "cnpj": "00.242.184/0001-04",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.919Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua na locação de equipamentos para diversos setores, com destaque para construção e infraestrutura, o que se encaixa no subsetor de Máquinas e Equipamentos.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:54:14.883Z"
+      }
+    }
+  },
+  "razao_social": "ARMAC LOCAÇÃO, LOGÍSTICA E SERVIÇOS S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.919Z"
+  },
+  "segmento": "Máq. e Equip. Construção e Agrícolas",
+  "setor": "Bens Industriais",
+  "subsetor": "Máquinas e Equipamentos"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e2b"
+  },
+  "cod_cvm": 14818,
+  "cnpj": "00.272.185/0001-93",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.928Z"
+    },
+    "fonte": "CVM",
+    "ativo": true
+  },
+  "razao_social": "CIMS S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.928Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e2d"
+  },
+  "cod_cvm": 11258,
+  "cnpj": "00.336.701/0001-04",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.935Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A Telebras atua como agente executor de políticas públicas de telecomunicações, com foco em inclusão digital. Também gere a RPCAPF e possui participação na Visiona, que atua no setor aeroespacial.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:58:24.615Z"
+      }
+    }
+  },
+  "razao_social": "TELEC BRASILEIRAS S.A. TELEBRAS",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.935Z"
+  },
+  "segmento": "Telecomunicações",
+  "setor": "Comunicações",
+  "subsetor": "Telecomunicações"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e2f"
+  },
+  "cod_cvm": 15423,
+  "cnpj": "00.359.742/0001-08",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.942Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua principalmente na área de educação financeira, oferecendo cursos, materiais didáticos e treinamentos, além de operar no mercado financeiro. Portanto, a classificação em \"Serviços Financeiros Diversos\" é adequada.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:05:19.319Z"
+      }
+    }
+  },
+  "razao_social": "ATOM EMPREENDIMENTOS E PARTICIPAÇÕES S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.942Z"
+  },
+  "segmento": "Serviços Financeiros Diversos",
+  "setor": "Financeiro",
+  "subsetor": "Serviços Financeiros Diversos"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e31"
+  },
+  "cod_cvm": 16772,
+  "cnpj": "00.383.281/0001-09",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.949Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A BNDESPAR atua como um fundo de investimento, com foco em participações em empresas de capital aberto e fundos de investimento, o que a classifica claramente no setor financeiro.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:07:21.545Z"
+      }
+    }
+  },
+  "razao_social": "BNDES PARTICIPACOES S.A. - BNDESPAR",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.949Z"
+  },
+  "segmento": "Outros Intermediários Financeiros",
+  "setor": "Financeiro",
+  "subsetor": "Intermediários Financeiros"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e33"
+  },
+  "cod_cvm": 24880,
+  "cnpj": "00.389.481/0001-79",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.957Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua principalmente com aluguel e gestão de frotas de veículos, enquadrando-se diretamente no subsetor \"Serviços de Apoio e Armazenagem\", dentro do setor \"Transporte\". Adicionalmente, a venda de veículos usados e a assinatura mensal de veículos reforçam a atuação no setor de transporte.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:08:35.988Z"
+      }
+    }
+  },
+  "razao_social": "LM TRANSPORTES INTERESTADUAIS SERVIÇOS E COMÉRCIO S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.957Z"
+  },
+  "segmento": "Serviços de Apoio e Armazenagem",
+  "setor": "Bens Industriais",
+  "subsetor": "Transporte"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e35"
+  },
+  "cod_cvm": 22594,
+  "cnpj": "00.622.416/0001-41",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.972Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A Statkraft atua principalmente na geração e comercialização de energia renovável, incluindo hidrelétrica, eólica e solar, e também no fornecimento de aquecimento urbano. Essas atividades se enquadram perfeitamente no segmento de Energia Elétrica.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:12:15.143Z"
+      }
+    }
+  },
+  "razao_social": "STATKRAFT ENERGIAS RENOVAVEIS S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.972Z"
+  },
+  "segmento": "Energia Elétrica",
+  "setor": "Utilidade Pública",
+  "subsetor": "Energia Elétrica"
+},
+{
+  "_id": {
+    "$oid": "6754a79c3b36ca8936f96e37"
+  },
+  "cod_cvm": 18589,
+  "cnpj": "00.644.907/0001-93",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:00.987Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua exclusivamente no setor de energia elétrica, com foco na geração hidrelétrica através da UHE Lajeado. As atividades descritas no texto confirmam essa classificação.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:13:23.672Z"
+      }
+    }
+  },
+  "razao_social": "INVESTCO S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:00.987Z"
+  },
+  "segmento": "Energia Elétrica",
+  "setor": "Utilidade Pública",
+  "subsetor": "Energia Elétrica"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e39"
+  },
+  "cod_cvm": 15091,
+  "cnpj": "00.743.065/0001-27",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.005Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A Litel Participações S.A. é uma holding cujo principal ativo é a participação acionária na Vale S.A.  A descrição da atividade principal da empresa deixa claro seu papel como acionista da Vale.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:15:43.726Z"
+      }
+    }
+  },
+  "razao_social": "LITEL PARTICIPACOES S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.005Z"
+  },
+  "segmento": "Minerais Metálicos",
+  "setor": "Materiais Básicos",
+  "subsetor": "Mineração"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e3b"
+  },
+  "cod_cvm": 20990,
+  "cnpj": "00.776.574/0001-56",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.012Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A Americanas S.A. atua principalmente no setor de comércio varejista, com foco em vendas online e offline de uma ampla variedade de produtos. A empresa também oferece serviços financeiros e logísticos, complementando suas atividades principais. A classificação como \"Comércio Varejista, Produtos Diversos\" reflete a diversidade de produtos oferecidos e o amplo alcance de suas operações.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:17:57.970Z"
+      }
+    }
+  },
+  "razao_social": "AMERICANAS S.A. - EM RECUPERAÇÃO JUDICIAL",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.012Z"
+  },
+  "segmento": "Produtos Diversos",
+  "setor": "Comércio Varejista",
+  "subsetor": "Comércio Varejista"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e3d"
+  },
+  "cod_cvm": 15253,
+  "cnpj": "00.864.214/0001-06",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.019Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua principalmente na distribuição e transmissão de energia elétrica, com forte presença em diversos estados brasileiros. Também possui operações em geração de energia, incluindo fontes renováveis, além de atuar na distribuição de gás natural e comercialização de energia. Os serviços financeiros e de corretagem de seguros são atividades secundárias.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:19:08.329Z"
+      }
+    }
+  },
+  "razao_social": "ENERGISA S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.019Z"
+  },
+  "segmento": "Energia Elétrica",
+  "setor": "Utilidade Pública",
+  "subsetor": "Energia Elétrica"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e3f"
+  },
+  "cod_cvm": 27383,
+  "cnpj": "00.873.894/0001-24",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.029Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua com aluguel e gest\n\n\n\n\n\no de frotas de ve\n\n\n\n\n\n\nculos, o que se enquadra diretamente no segmento de Aluguel de Carros.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:25:10.272Z"
+      }
+    }
+  },
+  "razao_social": "LETS RENT A CAR S/A",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.029Z"
+  },
+  "segmento": "Aluguel de Carros",
+  "setor": "Consumo Cíclico",
+  "subsetor": "Diversos"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e41"
+  },
+  "cod_cvm": 15199,
+  "cnpj": "00.897.864/0001-58",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.036Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa tem como objetivo explícito a captação de recursos via emissão de obrigações para investimento em projetos públicos no estado de Santa Catarina.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:27:32.299Z"
+      }
+    }
+  },
+  "razao_social": "SANTA CATARINA PART INVEST SA",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.036Z"
+  },
+  "segmento": "Serviços Financeiros Diversos",
+  "setor": "Financeiro",
+  "subsetor": "Serviços Financeiros Diversos"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e43"
+  },
+  "cod_cvm": 15369,
+  "cnpj": "00.924.429/0001-75",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.042Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua com transporte ferroviário de cargas, opera terminais intermodais e oferece soluções logísticas integradas, incluindo transporte rodoviário e operação portuária.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:28:27.299Z"
+      }
+    }
+  },
+  "razao_social": "FERROVIA CENTRO-ATLANTICA S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.042Z"
+  },
+  "segmento": "Transporte Ferroviário",
+  "setor": "Bens Industriais",
+  "subsetor": "Transporte"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e45"
+  },
+  "cod_cvm": 19208,
+  "cnpj": "00.938.574/0001-05",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.050Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua exclusivamente na gest\ncia de concess\nar de rodovias, enquadrando-se diretamente no setor de transporte e, especificamente, na explora\"",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:34:15.172Z"
+      }
+    }
+  },
+  "razao_social": "CONC RIO-TERESOPOLIS S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.050Z"
+  },
+  "segmento": "Explora\nde Rodovias",
+  "setor": "Bens Industriais",
+  "subsetor": "Transporte"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e47"
+  },
+  "cod_cvm": 24937,
+  "cnpj": "00.974.211/0001-25",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.056Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua exclusivamente na exploração, operação e manutenção de uma rodovia concedida, enquadrando-se perfeitamente no segmento de Exploração de Rodovias.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:36:01.329Z"
+      }
+    }
+  },
+  "razao_social": "LINHA AMARELA S.A. - LAMSA",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.056Z"
+  },
+  "segmento": "Exploração de Rodovias",
+  "setor": "Bens Industriais",
+  "subsetor": "Transporte"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e49"
+  },
+  "cod_cvm": 15717,
+  "cnpj": "00.979.969/0001-56",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.063Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua diretamente na administração da dívida pública estadual, emitindo títulos e realizando operações financeiras para o governo do Rio Grande do Sul.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:32:16.235Z"
+      }
+    }
+  },
+  "razao_social": "CAIXA ADM DIV PUB ESTADUAL SA",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.063Z"
+  },
+  "segmento": "Serviços Financeiros Diversos",
+  "setor": "Financeiro",
+  "subsetor": "Serviços Financeiros Diversos"
+},
+{
+  "_id": {
+    "$oid": "6754a79d3b36ca8936f96e4b"
+  },
+  "cod_cvm": 21733,
+  "cnpj": "01.027.058/0001-91",
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T19:53:01.070Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A Cielo atua como adquirente, processando transações de cartão e oferecendo serviços relacionados a pagamentos eletrônicos. Suas atividades se enquadram no setor de Serviços Financeiros, especificamente no subsetor de Intermediários Financeiros, segmento de Adquirentes e Administradoras de Cartões.",
+      "data_classificacao": {
+        "$date": "2024-12-07T20:34:44.137Z"
+      }
+    }
+  },
+  "razao_social": "CIELO S.A. -  INSTITUIÇÃO DE PAGAMENTO",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T19:53:01.070Z"
+  },
+  "segmento": "Adquirentes e Administradoras de Cartões",
+  "setor": "Financeiro",
+  "subsetor": "Intermediários Financeiros"
+},
+{
+  "_id": {
+    "$oid": "6754b336d2d73ef6d850b50b"
+  },
+  "cod_cvm": 27472,
+  "cnpj": "00.357.038/0001-16",
+  "razao_social": "CENTRAIS ELÉTRICAS DO NORTE DO BRASIL S.A.",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T20:42:30.478Z"
+  },
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T20:42:30.478Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua na geração, transmissão e comercialização de energia elétrica, atividades características do setor de Utilidade Pública, no subsetor de Energia Elétrica.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:04:06.149Z"
+      }
+    }
+  },
+  "segmento": "Energia Elétrica",
+  "setor": "Utilidade Pública",
+  "subsetor": "Energia Elétrica"
+},
+{
+  "_id": {
+    "$oid": "6754b336d2d73ef6d850b510"
+  },
+  "cod_cvm": 14966,
+  "cnpj": "00.545.378/0001-70",
+  "razao_social": "SERRA AZUL WATER PARK SA",
+  "situacao": "",
+  "ultima_atualizacao": {
+    "$date": "2024-12-07T20:42:30.506Z"
+  },
+  "metadata": {
+    "primeira_inclusao": {
+      "$date": "2024-12-07T20:42:30.506Z"
+    },
+    "fonte": "CVM",
+    "ativo": true,
+    "classificacao_setorial": {
+      "confiabilidade": "ALTA",
+      "justificativa": "A empresa atua na operação de um parque temático aquático, com atividades relacionadas a lazer, entretenimento e eventos, enquadrando-se no segmento de Parques de Diversões.",
+      "data_classificacao": {
+        "$date": "2024-12-07T21:10:03.192Z"
+      }
+    }
+  },
+  "segmento": "Parques de Diversão",
+  "setor": "Consumo Cíclico",
+  "subsetor": "Viagens e Lazer"
+}]

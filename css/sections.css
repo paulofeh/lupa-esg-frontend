@@ -1,0 +1,337 @@
+/* ESG Section Components
+   ========================================================================== */
+
+/* ESG Details */
+.esg-details {
+  margin-top: 3rem;
+  position: relative;
+  overflow: visible;
+}
+
+.esg-detail-section {
+  border-radius: 0.75rem;
+  background: white;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-esg-border);
+}
+
+/* ESG Detail Header */
+.esg-detail-header {
+  padding: 1.25rem;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.esg-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.esg-badge-icon i {
+  font-size: 1.25rem;
+  line-height: 1;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ESG Status Colors */
+[data-status="true"] .esg-badge-icon {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+[data-status="false"] .esg-badge-icon {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* ESG Content */
+.esg-detail-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out,
+    padding 0.3s ease-out;
+  background-color: var(--color-esg-background);
+  opacity: 0;
+  padding: 0;
+}
+
+.esg-detail-content.active {
+  max-height: 2000px;
+  padding: 2rem;
+  opacity: 1;
+}
+
+/* ESG Content Blocks */
+.esg-content-block {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.esg-content-block:last-child {
+  margin-bottom: 0;
+}
+
+.esg-content-title {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+/* ESG Document */
+.esg-document {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--color-esg-background);
+  border-radius: 0.5rem;
+}
+
+.esg-document-title {
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  color: var(--color-text);
+}
+
+.esg-document-link {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.esg-document-link:hover {
+  text-decoration: underline;
+}
+
+/* ESG Tags */
+.esg-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.esg-tag {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background-color: var(--color-esg-background);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+/* ESG Highlight Block */
+.esg-highlight-block {
+  background-color: var(--color-primary);
+  border: none;
+}
+
+.esg-highlight-block .esg-document {
+  background: transparent;
+  padding: 0;
+}
+
+.esg-highlight-block .esg-document-title {
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.esg-highlight-block .esg-document-link {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  transition: background-color 0.2s ease;
+}
+
+.esg-highlight-block .esg-document-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.esg-highlight-block .esg-document-link i {
+  color: white;
+}
+
+/* Diversity Section Components
+   ========================================================================== */
+
+/* Diversity Cards */
+.diversity-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.diversity-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  border: 1px solid var(--color-diversity-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.diversity-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--color-diversity-border);
+}
+
+.diversity-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--color-diversity-light);
+  color: var(--color-diversity-primary);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.diversity-card-icon i {
+  font-size: 1.5rem;
+}
+
+.diversity-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.25rem;
+}
+
+.diversity-card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-diversity-primary);
+  line-height: 1.2;
+  font-family: var(--font-heading-alternate);
+}
+
+.diversity-card-label {
+  font-size: 0.875rem;
+  color: var(--color-diversity-text);
+  opacity: 0.8;
+}
+
+.diversity-card-breakdown {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-diversity-border);
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--color-diversity-primary);
+  padding: 0.25rem 0;
+}
+
+.breakdown-label {
+  opacity: 0.8;
+}
+
+.breakdown-value {
+  font-weight: 600;
+}
+
+/* Diversity Divider */
+.diversity-divider {
+  margin: 5rem 0;
+  position: relative;
+  text-align: center;
+}
+
+.diversity-divider:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--color-diversity-border);
+}
+
+.diversity-divider-text {
+  position: relative;
+  background: var(--color-diversity-light);
+  padding: 0 1rem;
+  color: var(--color-diversity-primary);
+  font-family: var(--font-heading-alternate);
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Gender & Race Section Titles */
+.diversity-subtitle {
+  font-family: var(--font-heading-alternate);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-diversity-primary);
+  margin-bottom: 3rem;
+}
+
+/* Message States */
+.diversity-card-message {
+  font-size: 0.875rem;
+  color: var(--color-diversity-text);
+  opacity: 0.7;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .diversity-section {
+    padding: 2rem 1rem;
+  }
+
+  .diversity-card {
+    padding: 1.25rem;
+  }
+
+  .diversity-card-value {
+    font-size: 1.5rem;
+  }
+
+  .diversity-card-breakdown {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+}

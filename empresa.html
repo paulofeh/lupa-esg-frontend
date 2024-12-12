@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Análise de dados ESG de empresas brasileiras baseada no Formulário de Referência."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lupa(ESG)" />
+    <meta
+      property="og:description"
+      content="Análise de dados ESG de empresas brasileiras baseada no Formulário de Referência."
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Lupa(ESG)" />
+    <meta
+      property="twitter:description"
+      content="Análise de dados ESG de empresas brasileiras baseada no Formulário de Referência."
+    />
+
+    <title>Lupa(ESG)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Additional CSS files -->
+    <!--<link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/charts.css" />-->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- Header Fixo -->
+    <header class="header">
+      <div class="header__container">
+        <a href="/" class="header__logo">lupa(ESG)</a>
+        <nav class="header__nav">
+          <a href="/#filters-section" class="header__nav-link js-scroll-link"
+            >Explorar dados</a
+          >
+          <a href="/sobre.html" class="header__nav-link">Sobre o projeto</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Container Principal -->
+    <main class="main-container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero__content">
+          <h1 class="hero__title">Carregando...</h1>
+
+          <!-- Badges para classificação setorial -->
+          <div class="badges">
+            <span class="badge badge--sector">
+              <i class="fa-solid fa-industry"></i>
+              <strong>Setor:</strong> Carregando...
+            </span>
+            <span class="badge badge--subsector">
+              <i class="fa-solid fa-tags"></i>
+              <strong>Subsetor:</strong> Carregando...
+            </span>
+            <span class="badge badge--segment">
+              <i class="fa-solid fa-tag"></i>
+              <strong>Segmento: </strong> Carregando...
+            </span>
+          </div>
+
+          <!-- Metadados -->
+          <div class="company-metadata">
+            <div class="metadata-item">
+              <span class="metadata-label">Código CVM:</span>
+              <span class="metadata-value">Carregando...</span>
+            </div>
+            <div class="metadata-item">
+              <span class="metadata-label">CNPJ:</span>
+              <span class="metadata-value">Carregando...</span>
+            </div>
+            <div class="metadata-item">
+              <span class="metadata-label">Data de referência:</span>
+              <span class="metadata-value">Carregando...</span>
+            </div>
+            <div class="metadata-item">
+              <span class="metadata-label">Data de recebimento:</span>
+              <span class="metadata-value">Carregando...</span>
+            </div>
+            <div class="metadata-item">
+              <span class="metadata-label">Versão:</span>
+              <span class="metadata-value">Carregando...</span>
+            </div>
+          </div>
+
+          <!-- Alert Expandable -->
+          <div class="alert-expandable">
+            <div class="alert-header">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Atenção! Uso de IA generativa</p>
+              <i class="fa-solid fa-chevron-down expand-icon"></i>
+            </div>
+            <div class="alert-content">
+              <p>
+                Parte das informações abaixo foi gerada com o uso do
+                <em>Google Gemini Pro</em>. Assim, é sempre possível que ocorram
+                alucinações. Para informações oficiais e atualizadas, consulte
+                sempre o
+                <a href="https://www.gov.br/cvm/pt-br" target="_blank"
+                  >site da CVM</a
+                >, além das páginas de RI das próprias empresas.
+              </p>
+            </div>
+          </div>
+          <div class="update-info">
+            <i class="ph-bold ph-clock-clockwise"></i>
+            Última atualização em:
+            <span class="update-date">Carregando...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Resumo de Atividades -->
+        <section class="content-section">
+          <h2 class="section-title">Quem é</h2>
+          <div class="text-block">
+            <p>Carregando...</p>
+          </div>
+        </section>
+
+        <!-- Principais Atividades -->
+        <section class="content-section">
+          <h3 class="title-h3">Segmentos em que atua</h3>
+          <div class="text-block">
+            <div class="activities-grid">
+              <div class="activity-card">
+                <div class="activity-icon">
+                  <i class="ph-bold ph-building"></i>
+                </div>
+                <h4 class="activity-title">Carregando...</h4>
+              </div>
+
+              <div class="activity-card">
+                <div class="activity-icon">
+                  <i class="ph-bold ph-building"></i>
+                </div>
+                <h4 class="activity-title">Carregando...</h4>
+              </div>
+
+              <div class="activity-card">
+                <div class="activity-icon">
+                  <i class="ph-bold ph-building"></i>
+                </div>
+                <h4 class="activity-title">Carregando...</h4>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Histórico -->
+        <section class="content-section">
+          <h2 class="section-title">Histórico</h2>
+          <div class="text-block">
+            <ul class="history-list">
+              <!-- Será preenchido via JavaScript -->
+            </ul>
+          </div>
+          <div class="info-badges">
+            <span class="info-badge">
+              <i class="fa-regular fa-calendar"></i>
+              Fundação: Carregando...
+            </span>
+            <span class="info-badge">
+              <i class="fa-solid fa-location-dot"></i>
+              Brasil
+            </span>
+          </div>
+        </section>
+      </div>
+      <section class="esg-section">
+        <div class="esg-container">
+          <h2 class="section-title">Práticas de reporte</h2>
+          <div class="esg-details">
+            <!-- Seção Relatório -->
+            <div class="esg-detail-section" data-status="true" id="esg-report">
+              <div class="esg-detail-header">
+                <div class="esg-badge-icon">
+                  <i class="ph-bold ph-file-text"></i>
+                </div>
+                <h3>Relatório ESG</h3>
+                <i class="ph-bold ph-caret-down"></i>
+              </div>
+              <div class="esg-detail-content">
+                <!-- Documento -->
+                <div class="esg-content-block esg-highlight-block">
+                  <div class="esg-document">
+                    <div class="esg-document-title">
+                      Relatório de Sustentabilidade 2023
+                    </div>
+                    <a href="#" class="esg-document-link" target="_blank">
+                      <i class="ph-bold ph-link"></i>
+                      Acessar documento
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Padrões considerados -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Padrões considerados</div>
+                  <div class="esg-tag-list">
+                    <span class="esg-tag">GRI Standards</span>
+                    <span class="esg-tag">SASB</span>
+                    <span class="esg-tag">TCFD</span>
+                    <span class="esg-tag">ISSB S1</span>
+                    <span class="esg-tag">ISSB S2</span>
+                  </div>
+                </div>
+
+                <!-- Resumo -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Resumo da prática</div>
+                  <p>
+                    A empresa publica anualmente seu Relatório de
+                    Sustentabilidade, seguindo os principais padrões
+                    internacionais de reporte. O documento abrange todas as
+                    operações do grupo e é verificado por terceira parte
+                    independente.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="esg-detail-section" data-status="true" id="esg-audit">
+              <div class="esg-detail-header">
+                <div class="esg-badge-icon">
+                  <i class="ph-bold ph-check-square"></i>
+                </div>
+                <h3>Auditoria externa</h3>
+                <i class="ph-bold ph-caret-down"></i>
+              </div>
+
+              <div class="esg-detail-content">
+                <!-- O conteúdo será dinâmico, mas mantemos a estrutura base -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Resumo da prática</div>
+                  <p>Carregando...</p>
+                </div>
+              </div>
+            </div>
+            <!-- Seção Inventário -->
+            <div
+              class="esg-detail-section"
+              data-status="true"
+              id="esg-inventory"
+            >
+              <div class="esg-detail-header">
+                <div class="esg-badge-icon">
+                  <i class="ph-bold ph-chart-line-up"></i>
+                </div>
+                <h3>Inventário de emissões</h3>
+                <i class="ph-bold ph-caret-down"></i>
+              </div>
+
+              <div class="esg-detail-content">
+                <!-- Link -->
+                <div class="esg-content-block esg-highlight-block">
+                  <div class="esg-document">
+                    <div class="esg-document-title">
+                      Inventário de emissões GEE 2023
+                    </div>
+                    <a href="#" class="esg-document-link" target="_blank">
+                      <i class="ph-bold ph-link"></i>
+                      Acessar inventário completo
+                    </a>
+                  </div>
+                </div>
+                <!-- Escopos -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Escopos considerados</div>
+                  <div class="esg-scopes">
+                    <div class="esg-scope" data-active="true">
+                      <div class="esg-scope-icon">
+                        <i class="ph-bold ph-check"></i>
+                      </div>
+                      <div class="esg-scope-info">
+                        <div class="esg-scope-title">Escopo 1</div>
+                        <div class="esg-scope-description">
+                          Emissões diretas
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="esg-scope" data-active="true">
+                      <div class="esg-scope-icon">
+                        <i class="ph-bold ph-check"></i>
+                      </div>
+                      <div class="esg-scope-info">
+                        <div class="esg-scope-title">Escopo 2</div>
+                        <div class="esg-scope-description">
+                          Emissões indiretas - energia
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="esg-scope" data-active="true">
+                      <div class="esg-scope-icon">
+                        <i class="ph-bold ph-check"></i>
+                      </div>
+                      <div class="esg-scope-info">
+                        <div class="esg-scope-title">Escopo 3</div>
+                        <div class="esg-scope-description">
+                          Outras emissões indiretas
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Metodologias -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Metodologias utilizadas</div>
+                  <div class="esg-tag-list">
+                    <span class="esg-tag">GHG Protocol</span>
+                    <span class="esg-tag">ISO 14064</span>
+                    <span class="esg-tag">IPCC 2006</span>
+                  </div>
+                </div>
+
+                <!-- Resumo -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Resumo da prática</div>
+                  <p>
+                    A empresa realiza anualmente seu inventário de emissões de
+                    gases de efeito estufa (GEE) para todos os escopos, seguindo
+                    metodologias internacionalmente reconhecidas. O documento
+                    passa por verificação externa e é publicado no Registro
+                    Público de Emissões do GHG Protocol Brasil.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Seção Matriz -->
+            <div class="esg-detail-section" data-status="true" id="esg-matrix">
+              <div class="esg-detail-header">
+                <div class="esg-badge-icon">
+                  <i class="ph-bold ph-chart-scatter"></i>
+                </div>
+                <h3>Matriz de materialidade</h3>
+                <i class="ph-bold ph-caret-down"></i>
+              </div>
+
+              <div class="esg-detail-content">
+                <!-- Resumo -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Resumo da prática</div>
+                  <p>
+                    A matriz de materialidade é resultado de um processo
+                    estruturado de consulta aos stakeholders, realizado a cada
+                    dois anos. O processo envolve entrevistas, pesquisas online
+                    e workshops com diferentes públicos de interesse para
+                    identificar e priorizar os temas mais relevantes para a
+                    gestão ESG da companhia.
+                  </p>
+                </div>
+
+                <!-- Temas Materiais -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Temas materiais</div>
+                  <div class="esg-material-themes">
+                    <div class="esg-material-theme">
+                      <div class="esg-theme-icon" data-pillar="E">
+                        <i class="ph-bold ph-leaf"></i>
+                      </div>
+                      <div class="esg-theme-content">
+                        <div class="esg-theme-title">Mudanças climáticas</div>
+                        <div class="esg-theme-pillar">Ambiental</div>
+                      </div>
+                    </div>
+
+                    <div class="esg-material-theme">
+                      <div class="esg-theme-icon" data-pillar="E">
+                        <i class="ph-bold ph-tree"></i>
+                      </div>
+                      <div class="esg-theme-content">
+                        <div class="esg-theme-title">Biodiversidade</div>
+                        <div class="esg-theme-pillar">Ambiental</div>
+                      </div>
+                    </div>
+
+                    <div class="esg-material-theme">
+                      <div class="esg-theme-icon" data-pillar="E">
+                        <i class="ph-bold ph-drop"></i>
+                      </div>
+                      <div class="esg-theme-content">
+                        <div class="esg-theme-title">Gestão da água</div>
+                        <div class="esg-theme-pillar">Ambiental</div>
+                      </div>
+                    </div>
+
+                    <div class="esg-material-theme">
+                      <div class="esg-theme-icon" data-pillar="S">
+                        <i class="ph-bold ph-heart"></i>
+                      </div>
+                      <div class="esg-theme-content">
+                        <div class="esg-theme-title">Saúde e segurança</div>
+                        <div class="esg-theme-pillar">Social</div>
+                      </div>
+                    </div>
+
+                    <div class="esg-material-theme">
+                      <div class="esg-theme-icon" data-pillar="S">
+                        <i class="ph-bold ph-users-three"></i>
+                      </div>
+                      <div class="esg-theme-content">
+                        <div class="esg-theme-title">
+                          Desenvolvimento de pessoas
+                        </div>
+                        <div class="esg-theme-pillar">Social</div>
+                      </div>
+                    </div>
+
+                    <div class="esg-material-theme">
+                      <div class="esg-theme-icon" data-pillar="G">
+                        <i class="ph-bold ph-scales"></i>
+                      </div>
+                      <div class="esg-theme-content">
+                        <div class="esg-theme-title">Ética e integridade</div>
+                        <div class="esg-theme-pillar">Governança</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seção ODS -->
+            <div class="esg-detail-section" data-status="true" id="esg-ods">
+              <div class="esg-detail-header">
+                <div class="esg-badge-icon">
+                  <i class="ph-bold ph-globe-hemisphere-west"></i>
+                </div>
+                <h3>Objetivos de Desenvolvimento Sustentável (ODS)</h3>
+                <i class="ph-bold ph-caret-down"></i>
+              </div>
+
+              <div class="esg-detail-content">
+                <!-- Resumo -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Resumo da prática</div>
+                  <p>
+                    A empresa integrou os Objetivos de Desenvolvimento
+                    Sustentável (ODS) da ONU em sua estratégia de
+                    sustentabilidade, identificando e priorizando os objetivos
+                    mais alinhados com seus impactos e contribuições para o
+                    desenvolvimento sustentável.
+                  </p>
+                </div>
+
+                <!-- Grid dos ODS -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">ODS priorizados</div>
+                  <div class="esg-sdg-grid">
+                    <div class="esg-sdg-item" title="Erradicação da Pobreza">
+                      <img
+                        src="/assets/sdg_icons/SDG-1.svg"
+                        alt="ODS 1 - Erradicação da Pobreza"
+                        class="esg-sdg-icon"
+                      />
+                      <span class="esg-sdg-number">1</span>
+                    </div>
+
+                    <div class="esg-sdg-item" title="Energia Limpa e Acessível">
+                      <img
+                        src="/assets/sdg_icons/SDG-7.svg"
+                        alt="ODS 7 - Energia Limpa e Acessível"
+                        class="esg-sdg-icon"
+                      />
+                      <span class="esg-sdg-number">7</span>
+                    </div>
+
+                    <div
+                      class="esg-sdg-item"
+                      title="Trabalho Decente e Crescimento Econômico"
+                    >
+                      <img
+                        src="/assets/sdg_icons/SDG-8.svg"
+                        alt="ODS 8 - Trabalho Decente e Crescimento Econômico"
+                        class="esg-sdg-icon"
+                      />
+                      <span class="esg-sdg-number">8</span>
+                    </div>
+
+                    <div
+                      class="esg-sdg-item"
+                      title="Indústria, Inovação e Infraestrutura"
+                    >
+                      <img
+                        src="/assets/sdg_icons/SDG-9.svg"
+                        alt="ODS 9 - Indústria, Inovação e Infraestrutura"
+                        class="esg-sdg-icon"
+                      />
+                      <span class="esg-sdg-number">9</span>
+                    </div>
+
+                    <div
+                      class="esg-sdg-item"
+                      title="Ação Contra a Mudança Global do Clima"
+                    >
+                      <img
+                        src="/assets/sdg_icons/SDG-13.svg"
+                        alt="ODS 13 - Ação Contra a Mudança Global do Clima"
+                        class="esg-sdg-icon"
+                      />
+                      <span class="esg-sdg-number">13</span>
+                    </div>
+
+                    <div class="esg-sdg-item" title="Vida na Água">
+                      <img
+                        src="/assets/sdg_icons/SDG-14.svg"
+                        alt="ODS 14 - Vida na Água"
+                        class="esg-sdg-icon"
+                      />
+                      <span class="esg-sdg-number">14</span>
+                    </div>
+
+                    <div
+                      class="esg-sdg-item"
+                      title="Parcerias e Meios de Implementação"
+                    >
+                      <img
+                        src="/assets/sdg_icons/SDG-17.svg"
+                        alt="ODS 17 - Parcerias e Meios de Implementação"
+                        class="esg-sdg-icon"
+                      />
+                      <span class="esg-sdg-number">17</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Seção TCFD -->
+            <div class="esg-detail-section" data-status="true" id="esg-tcfd">
+              <div class="esg-detail-header">
+                <div class="esg-badge-icon">
+                  <i class="ph-bold ph-thermometer"></i>
+                </div>
+                <h3>Recomendações TCFD</h3>
+                <i class="ph-bold ph-caret-down"></i>
+              </div>
+
+              <div class="esg-detail-content">
+                <!-- Introdução -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Resumo da prática</div>
+                  <p>
+                    A empresa adota as recomendações da Task Force on
+                    Climate-Related Financial Disclosures (TCFD) em seu reporte
+                    climático, fornecendo informações estruturadas sobre
+                    governança, estratégia, gestão de riscos e métricas
+                    relacionadas às mudanças climáticas.
+                  </p>
+                </div>
+
+                <!-- Pilares TCFD -->
+                <div class="esg-content-block">
+                  <div class="esg-content-title">Pilares considerados</div>
+                  <div class="esg-tcfd-pillars">
+                    <div class="esg-tcfd-pillar">
+                      <div class="esg-tcfd-pillar-icon">
+                        <i class="ph-bold ph-buildings"></i>
+                      </div>
+                      <div class="esg-tcfd-pillar-content">
+                        <h4 class="esg-tcfd-pillar-title">Governança</h4>
+                        <p class="esg-tcfd-pillar-description">
+                          Supervisão e gestão dos riscos e oportunidades
+                          climáticas
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="esg-tcfd-pillar">
+                      <div class="esg-tcfd-pillar-icon">
+                        <i class="ph-bold ph-strategy"></i>
+                      </div>
+                      <div class="esg-tcfd-pillar-content">
+                        <h4 class="esg-tcfd-pillar-title">Estratégia</h4>
+                        <p class="esg-tcfd-pillar-description">
+                          Impactos atuais e potenciais nos negócios, estratégia
+                          e planejamento
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="esg-tcfd-pillar">
+                      <div class="esg-tcfd-pillar-icon">
+                        <i class="ph-bold ph-shield-warning"></i>
+                      </div>
+                      <div class="esg-tcfd-pillar-content">
+                        <h4 class="esg-tcfd-pillar-title">Gestão de Riscos</h4>
+                        <p class="esg-tcfd-pillar-description">
+                          Processos para identificação e gestão de riscos
+                          climáticos
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="esg-tcfd-pillar">
+                      <div class="esg-tcfd-pillar-icon">
+                        <i class="ph-bold ph-chart-bar"></i>
+                      </div>
+                      <div class="esg-tcfd-pillar-content">
+                        <h4 class="esg-tcfd-pillar-title">Métricas e Metas</h4>
+                        <p class="esg-tcfd-pillar-description">
+                          Indicadores e objetivos usados na gestão climática
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="diversity-section">
+        <div class="diversity-container">
+          <h2 class="section-title">Diversidade, equidade e inclusão</h2>
+
+          <!-- Grid de cards com principais indicadores -->
+          <div class="diversity-highlights">
+            <!-- Quadro de Funcionários -->
+            <div class="diversity-card">
+              <div class="diversity-card-icon">
+                <i class="ph-bold ph-users"></i>
+              </div>
+              <div class="diversity-card-content">
+                <div class="diversity-card-value">14.286</div>
+                <div class="diversity-card-label">Total de colaboradores</div>
+                <div class="diversity-card-breakdown">
+                  <div class="breakdown-item">
+                    <span class="breakdown-label">Liderança</span>
+                    <span class="breakdown-value">1.245</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="breakdown-label">Demais posições</span>
+                    <span class="breakdown-value">13.041</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Remuneração -->
+            <div class="diversity-card">
+              <div class="diversity-card-icon">
+                <i class="ph-bold ph-currency-circle-dollar"></i>
+              </div>
+              <div class="diversity-card-content">
+                <div class="diversity-card-value">8,16x</div>
+                <div class="diversity-card-label">
+                  É a razão entre a maior remuneração individual e a mediana da
+                  companhia
+                </div>
+                <div class="diversity-card-breakdown">
+                  <div class="breakdown-item">
+                    <span class="breakdown-label">Maior remuneração</span>
+                    <span class="breakdown-value">R$ 1.598.364,31</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="breakdown-label"
+                      >Mediana (exclui a maior)</span
+                    >
+                    <span class="breakdown-value">R$ 195.897,13</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="diversity-divider">
+            <span class="diversity-divider-text">Distribuição por gênero</span>
+          </div>
+          <div class="diversity-gender">
+            <h3 class="diversity-subtitle">Composição</h3>
+
+            <!-- Container para os gráficos -->
+            <div class="gender-charts">
+              <div class="gender-chart">
+                <h4 class="chart-title">Órgãos Administrativos</h4>
+                <div class="chart-container" id="admin-gender-chart"></div>
+              </div>
+
+              <div class="gender-chart">
+                <h4 class="chart-title">Liderança</h4>
+                <div class="chart-container" id="leadership-gender-chart"></div>
+              </div>
+
+              <div class="gender-chart">
+                <h4 class="chart-title">Não-liderança</h4>
+                <div class="chart-container" id="others-gender-chart"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Evolução temporal -->
+          <section class="diversity-trend">
+            <h3 class="diversity-subtitle">
+              Evolução da representatividade feminina
+            </h3>
+
+            <!-- Tabs de navegação -->
+            <div class="trend-tabs">
+              <button class="trend-tab active" data-segment="admin">
+                Órgãos Administrativos
+              </button>
+              <button class="trend-tab" data-segment="leadership">
+                Liderança
+              </button>
+              <button class="trend-tab" data-segment="others">
+                Não-liderança
+              </button>
+            </div>
+
+            <!-- Container das visualizações -->
+            <div class="trend-views">
+              <div class="trend-view active" id="admin-trend">
+                <div class="trend-visualization">
+                  <!-- SVG será inserido via JS -->
+                </div>
+                <p class="trend-description">
+                  Evolução da proporção de mulheres nos órgãos administrativos.
+                </p>
+              </div>
+              <!-- Outros trend-view serão clonados via JS -->
+            </div>
+          </section>
+          <div class="diversity-divider">
+            <span class="diversity-divider-text"
+              >Distribuição por Cor / Raça</span
+            >
+          </div>
+          <!-- Seção de raça/cor -->
+          <div class="diversity-gender">
+            <h3 class="diversity-subtitle">Composição</h3>
+
+            <!-- Container para os gráficos -->
+            <div class="race-charts">
+              <div class="race-chart">
+                <h4 class="chart-title">Órgãos administrativos</h4>
+                <div class="chart-container" id="admin-race-chart"></div>
+              </div>
+
+              <div class="race-chart">
+                <h4 class="chart-title">Liderança (%)</h4>
+                <div class="chart-container" id="leadership-race-chart"></div>
+              </div>
+
+              <div class="race-chart">
+                <h4 class="chart-title">Não-liderança (%)</h4>
+                <div class="chart-container" id="others-race-chart"></div>
+              </div>
+            </div>
+            <!-- Evolução temporal -->
+            <section class="diversity-race-trend">
+              <h3 class="diversity-subtitle">
+                Evolução da representatividade racial
+              </h3>
+
+              <!-- Tabs de navegação -->
+              <div class="race-trend-tabs">
+                <button class="race-trend-tab active" data-segment="admin">
+                  Órgãos Administrativos
+                </button>
+                <button class="race-trend-tab" data-segment="leadership">
+                  Liderança
+                </button>
+                <button class="race-trend-tab" data-segment="others">
+                  Não-liderança
+                </button>
+              </div>
+
+              <!-- Container das visualizações -->
+              <div class="race-trend-views">
+                <div class="race-trend-view active" id="race-admin-trend">
+                  <div class="race-trend-visualization">
+                    <!-- SVG será inserido via JS -->
+                  </div>
+                  <p class="race-trend-description">
+                    A representatividade de não-brancos nos órgãos
+                    administrativos apresentou variação significativa entre 2023
+                    e 2024.
+                  </p>
+                </div>
+                <!-- Outros race-trend-view serão clonados via JS -->
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <div class="footer-container">
+        <!-- Logo e descrição -->
+        <div class="footer-brand">
+          <div class="footer-logo">lupa(ESG)</div>
+          <p class="footer-description">
+            Democratizando o acesso a informações ESG de empresas brasileiras
+          </p>
+        </div>
+
+        <!-- Links úteis -->
+        <div class="footer-links">
+          <h3>Links Úteis</h3>
+          <ul>
+            <li><a href="#">Sobre o projeto</a></li>
+            <li><a href="#">Como usar</a></li>
+            <li><a href="#">Metodologia</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Fontes de dados -->
+        <div class="footer-links">
+          <h3>Fontes</h3>
+          <ul>
+            <li>
+              <a href="https://www.gov.br/cvm/pt-br" target="_blank">CVM</a>
+            </li>
+            <li><a href="#">Formulários de Referência</a></li>
+            <li><a href="#">Documentos ESG</a></li>
+          </ul>
+        </div>
+
+        <!-- Contato -->
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <p>Tem sugestões ou encontrou algum erro?</p>
+          <a href="mailto:contato@lupaesg.com.br" class="footer-button">
+            Entre em contato
+          </a>
+        </div>
+      </div>
+
+      <!-- Subfooter -->
+      <div class="subfooter">
+        <div class="subfooter-container">
+          <p class="copyright">
+            © 2024 lupa(ESG). Dados abertos para consulta pública.
+          </p>
+          <p class="disclaimer">
+            Este é um projeto independente e não possui vínculo com a CVM ou
+            qualquer outra entidade governamental.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bibliotecas externas primeiro -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+    <!-- Scripts da aplicação depois -->
+    <script src="js/charts.js"></script>
+    <script src="js/gendertrends.js"></script>
+    <script src="js/racecharts.js"></script>
+    <script src="js/racetrends.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
