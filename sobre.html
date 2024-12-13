@@ -66,7 +66,7 @@
 
         <!-- Origem -->
         <section class="about-section">
-          <h2 class="section-title">Por quê</h2>
+          <h2 class="section-title">Motivação</h2>
           <div class="text-block">
             <p>
               O projeto lupa(ESG) surgiu da dificuldade de encontrar informações
@@ -158,44 +158,60 @@
         </section>
 
         <!-- Processo -->
+        <!-- Processo -->
         <section class="about-section">
-          <h2 class="section-title">Processo</h2>
-          <div class="process-steps">
+          <h2 class="section-title">Como funciona</h2>
+
+          <!-- Descrição introdutória -->
+          <div class="section-description">
+            <i class="ph ph-info"></i>
+            <p>
+              O pipeline de dados do lupa(ESG) é executado semanalmente,
+              garantindo informações sempre atualizadas sobre práticas ESG das
+              empresas brasileiras
+            </p>
+          </div>
+          <!-- Cards explicativos -->
+          <div class="pipeline-steps">
             <div class="process-step">
               <div class="step-icon">
                 <i class="ph ph-cloud-arrow-down"></i>
               </div>
               <div class="step-content">
-                <h3>Coleta</h3>
+                <h3>Coleta Automatizada</h3>
                 <p>
-                  Script Python acessa o Portal CVM e baixa os arquivos ZIP com
-                  dados atualizados
+                  Semanalmente, nossos scripts acessam a base de dados da CVM
+                  para baixar os Formulários de Referência (FRE) mais recentes
+                  de todas as empresas listadas.
                 </p>
               </div>
             </div>
 
             <div class="process-step">
               <div class="step-icon">
-                <i class="ph ph-file-text"></i>
+                <i class="ph ph-database"></i>
               </div>
               <div class="step-content">
-                <h3>Extração</h3>
+                <h3>Processamento de Dados</h3>
                 <p>
-                  Arquivos são descompactados e os XMLs com dados e PDFs são
-                  processados
+                  Os dados são processados em duas etapas: primeiro extraímos as
+                  informações quantitativas (números, estatísticas, métricas) e
+                  depois processamos os textos explicativos usando IA (Gemini
+                  Pro) para maior compreensão.
                 </p>
               </div>
             </div>
 
             <div class="process-step">
               <div class="step-icon">
-                <i class="ph ph-brain"></i>
+                <i class="ph ph-chart-bar"></i>
               </div>
               <div class="step-content">
-                <h3>Processamento</h3>
+                <h3>Análise e Armazenamento</h3>
                 <p>
-                  Dados numéricos são estruturados e textos são interpretados
-                  via Google Gemini.
+                  Todos os dados processados são armazenados em um banco
+                  MongoDB, onde também calculamos estatísticas gerais do mercado
+                  e tendências do setor ESG.
                 </p>
               </div>
             </div>
@@ -205,8 +221,12 @@
                 <i class="ph ph-graph"></i>
               </div>
               <div class="step-content">
-                <h3>Visualização</h3>
-                <p>Dados são organizados em visualizações acessíveis</p>
+                <h3>Disponibilização</h3>
+                <p>
+                  Uma API desenvolvida em FastAPI fornece os dados processados
+                  para a interface web, que apresenta visualizações interativas
+                  e insights sobre as práticas ESG das empresas.
+                </p>
               </div>
             </div>
           </div>
@@ -274,7 +294,7 @@
             <div class="contribution-card">
               <i class="ph ph-chart-line-up"></i>
               <h3>Pesquisador</h3>
-              <p>Auxilie na interpretação dos dados</p>
+              <p>Auxilie na checagem e interpretação dos dados</p>
             </div>
           </div>
           <div class="cta-container">

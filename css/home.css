@@ -22,7 +22,6 @@
 /* Área de busca */
 .search-container {
   position: relative;
-  max-width: 600px;
   margin: 0 auto 3rem;
 }
 
@@ -59,19 +58,15 @@
 }
 
 .search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
   background: white;
   border-radius: 0.75rem;
   margin-top: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
+  max-height: 0; /* Adicionado */
   transform: translateY(-10px);
-  transition: all 0.2s ease;
-  z-index: 100;
+  transition: all 0.3s ease-in-out;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -80,6 +75,8 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  max-height: 400px; /* Adicionado */
+  margin-bottom: 1rem; /* Adicionado para dar espaço após o dropdown */
 }
 
 .search-result-item {

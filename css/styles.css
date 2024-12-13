@@ -1728,8 +1728,7 @@ a:active {
   line-height: 1.6;
   color: var(--color-text);
   opacity: 0.9;
-  max-width: 65ch;
-  margin: -2rem auto 3rem;
+  margin: -2rem 0 3rem 0;
   padding: 1rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-radius: 0.5rem;
@@ -1868,5 +1867,47 @@ a:active {
 
   .disclaimer-list li {
     font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 2rem 1rem; /* Reduzido o padding vertical, mantido o horizontal */
+  }
+
+  .hero {
+    padding: 3rem 1rem 2rem; /* Ajustado padding do hero */
+  }
+
+  /* Ajuste do header em mobile */
+  .header__nav {
+    gap: 0.5rem; /* Reduz o espaço entre os links */
+  }
+
+  .header__nav-link {
+    padding: 0.5rem 0.75rem; /* Reduz o padding dos links */
+    font-size: 0.8125rem; /* Reduz levemente o tamanho da fonte */
+    white-space: nowrap; /* Previne quebra de linha */
+  }
+
+  /* Ajuste para os cards de processo */
+  .process-step {
+    margin: 0 1rem; /* Adiciona margem lateral */
+  }
+}
+
+/* Ajuste específico para telas muito pequenas */
+@media (max-width: 360px) {
+  .header__container {
+    padding: 0 0.5rem; /* Reduz ainda mais o padding lateral */
+  }
+
+  .header__logo {
+    font-size: 1.25rem; /* Reduz o tamanho do logo */
+  }
+
+  .header__nav-link {
+    padding: 0.5rem; /* Reduz ainda mais o padding */
+    font-size: 0.75rem; /* Reduz mais a fonte */
   }
 }

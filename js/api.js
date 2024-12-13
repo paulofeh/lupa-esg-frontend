@@ -1023,7 +1023,7 @@ const api = {
             (activity) => `
                 <div class="activity-card">
                     <div class="activity-icon">
-                        <i class="ph-bold ph-puzzle-piece"></i>
+                        <i class="ph ph-gear-fine"></i>
                     </div>
                     <h4 class="activity-title">${activity.descricao}</h4>
                 </div>
@@ -1367,7 +1367,7 @@ const api = {
             (activity) => `
           <div class="activity-card">
             <div class="activity-icon">
-              <i class="ph-bold ph-puzzle-piece"></i>
+              <i class="ph ph-gear-fine"></i>
             </div>
             <h4 class="activity-title">${activity.descricao}</h4>
           </div>
