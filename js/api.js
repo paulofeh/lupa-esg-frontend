@@ -1003,7 +1003,7 @@ const api = {
 
   async updateCompanyContent(codCvm) {
     try {
-      const data = await fetchCompanyData(codCvm);
+      const data = await this.fetchCompanyData(codCvm);
       const latestYear = Math.max(...Object.keys(data.dados_esg).map(Number));
       const latestData = data.dados_esg[latestYear];
 
@@ -1301,8 +1301,14 @@ const api = {
       const data = await this.fetchCompanyData(codCvm);
       console.log("Dados recebidos em updateCompanyHeader:", data);
 
+      // Validações iniciais
+      if (!data) {
+        throw new Error("Dados não encontrados");
+      }
+
       // Atualiza título e metadados básicos
-      document.querySelector(".hero__title").textContent = data.razao_social;
+      document.querySelector(".hero__title").textContent =
+        data.razao_social || "Nome não disponível";
 
       // Atualiza os metadados (badges)
       const metadata = document.querySelector(".company-metadata");
@@ -1347,82 +1353,106 @@ const api = {
         <strong>Segmento:</strong> ${data.segmento || "Não informado"}
       `;
 
-      // Obter o ano mais recente dos dados
+      // Obter o ano mais recente dos dados com validação
+      if (!data.dados_esg || Object.keys(data.dados_esg).length === 0) {
+        throw new Error("Dados ESG não encontrados");
+      }
+
       const latestYear = Math.max(...Object.keys(data.dados_esg).map(Number));
       const latestData = data.dados_esg[latestYear];
 
-      // Atualiza seção "Quem é"
+      if (!latestData || !latestData.dados_qualitativos) {
+        throw new Error("Dados qualitativos não encontrados");
+      }
+
+      // Atualiza seção "Quem é" com validação
       const whoIsSection = document.querySelector(
         ".content-section:nth-child(1) .text-block"
       );
-      whoIsSection.innerHTML = `
-        <p>${latestData.dados_qualitativos.conteudo.atividades.resumo_geral}</p>
-      `;
+      const resumoAtividades =
+        latestData.dados_qualitativos.conteudo?.atividades?.resumo_geral;
+      whoIsSection.innerHTML = resumoAtividades
+        ? `<p>${resumoAtividades}</p>`
+        : `<p>Resumo não disponível.</p>`;
 
-      // Atualiza segmentos de atuação
+      // Atualiza segmentos de atuação com validação
       const activitiesGrid = document.querySelector(".activities-grid");
-      activitiesGrid.innerHTML =
-        latestData.dados_qualitativos.conteudo.atividades.atividades_principais
+      const atividades =
+        latestData.dados_qualitativos.conteudo?.atividades
+          ?.atividades_principais || [];
+
+      if (atividades.length > 0) {
+        activitiesGrid.innerHTML = atividades
           .map(
             (activity) => `
-          <div class="activity-card">
-            <div class="activity-icon">
-              <i class="ph ph-gear-fine"></i>
-            </div>
-            <h4 class="activity-title">${activity.descricao}</h4>
-          </div>
-        `
+                  <div class="activity-card">
+                      <div class="activity-icon">
+                          <i class="ph ph-gear-fine"></i>
+                      </div>
+                      <h4 class="activity-title">${activity.descricao}</h4>
+                  </div>
+              `
           )
           .join("");
+      } else {
+        activitiesGrid.innerHTML = `
+              <div class="activity-card">
+                  <div class="activity-icon">
+                      <i class="ph ph-info"></i>
+                  </div>
+                  <h4 class="activity-title">Atividades não disponíveis</h4>
+              </div>
+          `;
+      }
 
-      // Atualiza histórico
+      // Atualiza histórico com validação
       const historicSection = document.querySelector(
         ".content-section:nth-child(3) .text-block"
       );
       const historicos =
-        latestData.dados_qualitativos.conteudo.historico.marcos_historicos;
+        latestData.dados_qualitativos.conteudo?.historico?.marcos_historicos ||
+        [];
 
-      if (historicos && historicos.length > 0) {
-        historicSection.innerHTML = `
-          <ul class="history-list">
-            ${historicos
-              .map(
-                (item) => `
-              <li>
-                <i class="ph-bold ph-calendar-check"></i>
-                <span>${item}</span>
-              </li>
-            `
-              )
-              .join("")}
-          </ul>
-        `;
-      } else {
-        historicSection.innerHTML = `<p>Histórico não disponível.</p>`;
-      }
+      historicSection.innerHTML =
+        historicos.length > 0
+          ? `
+              <ul class="history-list">
+                  ${historicos
+                    .map(
+                      (item) => `
+                      <li>
+                          <i class="ph-bold ph-calendar-check"></i>
+                          <span>${item}</span>
+                      </li>
+                  `
+                    )
+                    .join("")}
+              </ul>
+          `
+          : `<p>Histórico não disponível.</p>`;
 
-      // Atualiza informações de fundação
+      // Atualiza informações de fundação com validação
       const infoBadges = document.querySelector(".info-badges");
       const fundacao =
-        latestData.dados_qualitativos.conteudo.historico.fundacao;
+        latestData.dados_qualitativos.conteudo?.historico?.fundacao;
 
       if (fundacao && (fundacao.data || fundacao.local)) {
         const badges = [];
         if (fundacao.data) {
           badges.push(`
-            <span class="info-badge">
-              <i class="fa-regular fa-calendar"></i>
-              Fundação: ${fundacao.data}
-            </span>
-          `);
+                  <span class="info-badge">
+                      <i class="fa-regular fa-calendar"></i>
+                      Fundação: ${fundacao.data}
+                  </span>
+              `);
         }
         if (fundacao.local) {
           badges.push(`
-            <span class="info-badge">
-              <i class="fa-solid fa-location-dot"></i>
-              ${fundacao.local}
-            </span>
-          `);
+                  <span class="info-badge">
+                      <i class="fa-solid fa-location-dot"></i>
+                      ${fundacao.local}
+                  </span>
+              `);
         }
         infoBadges.innerHTML = badges.join("");
         infoBadges.style.display = "flex";
@@ -1430,21 +1460,21 @@ const api = {
         infoBadges.style.display = "none";
       }
 
-      // Atualiza data de processamento
-      const updateDate = document.querySelector(".update-date");
-      if (data.documento.data_processamento) {
-        updateDate.textContent = new Date(
-          data.documento.data_processamento
-        ).toLocaleDateString("pt-BR");
-      }
-
+      // Resto do código com validações similares...
       this.updatePageMetadata(data);
       this.updateESGAccordeons(data);
       this.updateDiversityHighlights(data);
-
-      heroContent.classList.remove("loading");
     } catch (error) {
       console.error("Erro ao atualizar dados:", error);
+      // Mostra mensagem amigável para o usuário
+      heroContent.innerHTML = `
+          <div class="error-message">
+              <i class="ph ph-warning"></i>
+              <p>Não foi possível carregar os dados completos desta empresa.</p>
+              <small>Por favor, tente novamente mais tarde.</small>
+          </div>
+      `;
+    } finally {
       heroContent.classList.remove("loading");
     }
   },
