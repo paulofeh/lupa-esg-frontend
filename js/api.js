@@ -373,8 +373,161 @@ function getPraticaLabel(pratica) {
   return labels[pratica] || pratica;
 }
 
+// Função auxiliar para obter o dado mais recente disponível
+function getLatestAvailableData(data, path) {
+  const years = Object.keys(data.dados_esg)
+    .map(Number)
+    .sort((a, b) => b - a);
+
+  let bestData = null;
+  let bestYear = null;
+  const currentYear = new Date().getFullYear();
+
+  for (const year of years) {
+    try {
+      let current = data.dados_esg[year];
+
+      // Se o path inclui info_asg, verifica se há erro
+      if (path.includes("info_asg")) {
+        const infoAsg = current?.dados_qualitativos?.conteudo?.info_asg;
+        if (infoAsg?.erro) {
+          // Se for erro total, pula para o próximo ano
+          if (infoAsg.erro.includes("Falha na extração")) continue;
+          // Se for erro parcial, marca como melhor opção se ainda não tivermos nenhuma
+          if (!bestData) {
+            bestData = infoAsg;
+            bestYear = year;
+          }
+          continue;
+        }
+      }
+
+      // Navega através do path
+      for (const key of path) {
+        if (!current) break;
+        current = current[key];
+      }
+
+      // Se encontrou dados válidos
+      if (current && current !== "") {
+        return {
+          data: current,
+          year: year,
+          needsYearBadge: year < currentYear,
+        };
+      }
+    } catch (error) {
+      console.debug(`Erro ao acessar dados do ano ${year}:`, error);
+      continue;
+    }
+  }
+
+  // Retorna os melhores dados encontrados ou null
+  return bestData
+    ? { data: bestData, year: bestYear, needsYearBadge: true }
+    : null;
+}
+
+function createYearBadge(year) {
+  return `
+      <span class="year-badge" title="Dados referentes a ${year}">
+          <i class="ph-bold ph-calendar"></i>
+          ${year}
+      </span>
+  `;
+}
+
+function getESGPracticeStatus(data, practice) {
+  // Se não temos dados, retorna status indeterminado
+  if (!data)
+    return {
+      status: "indeterminate",
+      icon: "ph-question",
+      label: "Dados não disponíveis",
+      className: "status-indeterminate",
+    };
+
+  // Mapeamento completo de práticas ESG
+  const practiceMap = {
+    "esg-report": {
+      path: "divulgaInformacoesAsg.divulga",
+      trueLabel: "Publica relatório ESG",
+      falseLabel: "Não publica relatório ESG",
+    },
+    "esg-audit": {
+      path: "auditoria.auditoriaRealizada",
+      trueLabel: "Realiza auditoria externa",
+      falseLabel: "Não realiza auditoria externa",
+    },
+    "esg-inventory": {
+      path: "inventarioEmissoes.realizaInventario",
+      trueLabel: "Realiza inventário GEE",
+      falseLabel: "Não realiza inventário GEE",
+    },
+    "esg-matrix": {
+      path: "materialidade.divulgaMatriz",
+      trueLabel: "Possui matriz de materialidade",
+      falseLabel: "Não possui matriz de materialidade",
+    },
+    "esg-ods": {
+      path: "objetivosDesenvolvimentoSustentavel.consideraODS",
+      trueLabel: "Considera ODS",
+      falseLabel: "Não considera ODS",
+    },
+    "esg-tcfd": {
+      path: "recomendacoesTCFD.consideraTCFD",
+      trueLabel: "Considera TCFD",
+      falseLabel: "Não considera TCFD",
+    },
+  };
+
+  const practiceConfig = practiceMap[practice];
+  if (!practiceConfig) return null;
+
+  try {
+    // Navega até o valor usando o path
+    const value = practiceConfig.path.split(".").reduce((obj, key) => {
+      if (obj === undefined || obj === null) return undefined;
+      return obj[key];
+    }, data);
+
+    // Determina o status com base no valor encontrado
+    if (value === true) {
+      return {
+        status: "active",
+        icon: "ph-check",
+        label: practiceConfig.trueLabel,
+        className: "status-active",
+      };
+    } else if (value === false) {
+      return {
+        status: "inactive",
+        icon: "ph-x",
+        label: practiceConfig.falseLabel,
+        className: "status-inactive",
+      };
+    }
+
+    // Se o valor não é nem true nem false, consideramos indeterminado
+    return {
+      status: "indeterminate",
+      icon: "ph-question",
+      label: "Dados não disponíveis",
+      className: "status-indeterminate",
+    };
+  } catch (error) {
+    console.debug(`Erro ao acessar status da prática ${practice}:`, error);
+    return {
+      status: "indeterminate",
+      icon: "ph-question",
+      label: "Dados não disponíveis",
+      className: "status-indeterminate",
+    };
+  }
+}
+
 const api = {
-  API_BASE_URL: "https://lupaesg-api.onrender.com/api/v1",
+  API_BASE_URL: "https://lupa-esg-api-f29b520daaca.herokuapp.com/api/v1",
 
   // Busca dados detalhados de uma empresa
   async fetchCompanyData(codCvm) {
@@ -418,74 +571,91 @@ const api = {
     }
   },
 
-  updateESGReportAccordeon(esgData) {
+  updateESGReportAccordeon(esgData, dataYear) {
     const reportSection = document.querySelector("#esg-report");
     const content = reportSection.querySelector(".esg-detail-content");
 
+    // Checa se temos os dados necessários
+    if (!esgData?.divulgaInformacoesAsg) {
+      content.innerHTML = `
+        <div class="esg-content-block">
+          <div class="esg-content-title">Dados não disponíveis</div>
+          <p>Não foi possível recuperar as informações sobre o relatório ESG.</p>
+        </div>
+      `;
+      return;
+    }
+
     // Obtém o status do relatório
-    const reportStatus = esgData.divulgaInformacoesAsg?.divulga || false;
+    const reportStatus = esgData.divulgaInformacoesAsg.divulga || false;
 
     if (reportStatus) {
-      // Se há relatório, atualiza o conteúdo
       const reportData = esgData.divulgaInformacoesAsg;
+      let contentBlocks = [];
 
-      // Atualiza o documento principal (bloco destacado)
-      let documentHTML = "";
-      if (reportData.documento && reportData.documento.length > 0) {
-        const mainDoc = reportData.documento[0];
-        documentHTML = `
+      // Bloco do documento principal (se disponível)
+      if (reportData.documento?.[0]) {
+        const doc = reportData.documento[0];
+        contentBlocks.push(`
           <div class="esg-content-block esg-highlight-block">
             <div class="esg-document">
               <div class="esg-document-title">
-                ${mainDoc.tipo || "Relatório ESG"}
+                ${doc.tipo || "Relatório ESG"}
               </div>
-              <a href="${
-                mainDoc.url
-              }" class="esg-document-link" target="_blank">
-                <i class="ph-bold ph-link"></i>
-                Acessar documento
-              </a>
+              ${
+                doc.url
+                  ? `
+                <a href="${doc.url}" class="esg-document-link" target="_blank">
+                  <i class="ph-bold ph-link"></i>
+                  Acessar documento
+                </a>
+              `
+                  : ""
+              }
             </div>
           </div>
-        `;
+        `);
       }
 
-      // Atualiza os padrões considerados
-      let standardsHTML = "";
-      if (esgData.metodologias?.padroesConsiderados) {
-        standardsHTML = `
+      // Bloco de metodologias (agora usando o caminho correto)
+      if (esgData.metodologias?.padroesConsiderados?.length > 0) {
+        contentBlocks.push(`
           <div class="esg-content-block">
-            <div class="esg-content-title">Padrões considerados</div>
+            <div class="esg-content-title">
+              Padrões considerados
+              ${
+                dataYear < new Date().getFullYear()
+                  ? createYearBadge(dataYear)
+                  : ""
+              }
+            </div>
             <div class="esg-tag-list">
               ${esgData.metodologias.padroesConsiderados
                 .map((padrao) => `<span class="esg-tag">${padrao}</span>`)
                 .join("")}
             </div>
           </div>
-        `;
+        `);
       }
 
-      // Atualiza o resumo da prática
-      const resumoHTML = `
+      // Bloco de resumo (sempre presente quando status é true)
+      contentBlocks.push(`
         <div class="esg-content-block">
           <div class="esg-content-title">Resumo da prática</div>
           <p>${
-            reportData.resumo || "Informações detalhadas não disponíveis."
+            reportData.resumo ||
+            "A empresa publica relatório ESG, mas não forneceu detalhes adicionais sobre o processo."
           }</p>
         </div>
-      `;
+      `);
 
-      // Atualiza todo o conteúdo
-      content.innerHTML = `
-        ${documentHTML}
-        ${standardsHTML}
-        ${resumoHTML}
-      `;
+      content.innerHTML = contentBlocks.join("");
     } else {
-      // Se não há relatório, mostra justificativa ou mensagem padrão
+      // Caso onde a empresa explicitamente não adota a prática
       const justificativa =
-        esgData.explicacoes ||
-        "A empresa não forneceu justificativa para a não adoção desta prática.";
+        esgData.explicacoes && esgData.explicacoes !== "null"
+          ? esgData.explicacoes
+          : "A empresa não forneceu justificativa para a não publicação do relatório ESG.";
 
       content.innerHTML = `
         <div class="esg-content-block">
@@ -944,163 +1114,268 @@ const api = {
     }
   },
 
-  // Atualiza os acordeons ESG
   updateESGAccordeons(data) {
-    const latestYear = Math.max(...Object.keys(data.dados_esg).map(Number));
-    const latestData = data.dados_esg[latestYear];
-    const esgData = latestData.dados_qualitativos.conteudo.info_asg;
+    // Obtém os dados ESG mais recentes disponíveis
+    const esgData = getLatestAvailableData(data, [
+      "dados_qualitativos",
+      "conteudo",
+      "info_asg",
+    ]);
 
-    const statusMap = {
-      "esg-report": esgData.divulgaInformacoesAsg?.divulga || false,
-      "esg-audit": esgData.auditoria?.auditoriaRealizada || false,
-      "esg-inventory": esgData.inventarioEmissoes?.realizaInventario || false,
-      "esg-matrix": esgData.materialidade?.divulgaMatriz || false,
-      "esg-ods":
-        esgData.objetivosDesenvolvimentoSustentavel?.consideraODS || false,
-      "esg-tcfd": esgData.recomendacoesTCFD?.consideraTCFD || false,
-    };
+    const accordeons = document.querySelectorAll(".esg-detail");
 
-    const iconMap = {
-      "esg-report": "ph-file-text",
-      "esg-audit": "ph-check-square",
-      "esg-inventory": "ph-chart-line-up",
-      "esg-matrix": "ph-chart-scatter",
-      "esg-ods": "ph-globe-hemisphere-west",
-      "esg-tcfd": "ph-thermometer",
-    };
+    // Se não encontrou nenhum dado ESG
+    if (!esgData) {
+      accordeons.forEach((accordeon) => {
+        const content = accordeon.querySelector(".esg-detail-content");
+        const header = accordeon.querySelector(".esg-detail-header");
 
-    Object.entries(statusMap).forEach(([id, status]) => {
-      const section = document.querySelector(`#${id}`);
-      if (section) {
-        section.dataset.status = status.toString();
-        const iconContainer = section.querySelector(".esg-badge-icon");
-        const icon = iconContainer.querySelector("i");
-        if (icon) {
-          icon.className = `ph-bold ${iconMap[id]}`;
+        // Atualiza o status no header
+        if (header && !header.querySelector(".esg-status-badge")) {
+          header.insertAdjacentHTML(
+            "beforeend",
+            `
+            <div class="esg-status-badge status-indeterminate">
+              <i class="ph-bold ph-question"></i>
+              <span>Dados não disponíveis</span>
+            </div>
+          `
+          );
         }
-        if (!status) {
-          const header = section.querySelector(".esg-detail-header");
-          if (!header.querySelector(".esg-status-badge")) {
-            const badge = document.createElement("div");
-            badge.className = "esg-status-badge";
-            badge.innerHTML = `
-              <i class="ph-bold ph-info"></i>
-              <span>Prática não adotada</span>
-            `;
-            header.appendChild(badge);
-          }
+
+        // Atualiza o conteúdo
+        if (content) {
+          content.innerHTML = `
+            <div class="esg-content-block">
+              <div class="esg-content-title">Informação indisponível</div>
+              <p>Não foi possível recuperar os dados desta seção.</p>
+            </div>
+          `;
         }
+      });
+      return;
+    }
+
+    // Atualiza cada acordeon individualmente
+    accordeons.forEach((accordeon) => {
+      const id = accordeon.id;
+      const header = accordeon.querySelector(".esg-detail-header");
+      const content = accordeon.querySelector(".esg-detail-content");
+
+      // Obtém o status da prática
+      const status = getESGPracticeStatus(esgData.data, id);
+
+      // Atualiza o badge de status no header
+      const existingBadge = header.querySelector(".esg-status-badge");
+      const statusBadge = `
+        <div class="esg-status-badge ${status.className}">
+          <i class="ph-bold ${status.icon}"></i>
+          <span>${status.label}</span>
+          ${esgData.needsYearBadge ? createYearBadge(esgData.year) : ""}
+        </div>
+      `;
+
+      if (existingBadge) {
+        existingBadge.outerHTML = statusBadge;
+      } else {
+        header.insertAdjacentHTML("beforeend", statusBadge);
+      }
+
+      // Atualiza o conteúdo baseado no status
+      if (status.status === "indeterminate") {
+        content.innerHTML = `
+          <div class="esg-content-block">
+            <div class="esg-content-title">Informação indisponível</div>
+            <p>Os dados desta prática não estão disponíveis no momento.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Atualiza o conteúdo específico de cada acordeon
+      switch (id) {
+        case "esg-report":
+          this.updateESGReportAccordeon(esgData.data, esgData.year);
+          break;
+        case "esg-audit":
+          this.updateESGAuditAccordeon(esgData.data);
+          break;
+        case "esg-inventory":
+          this.updateESGInventoryAccordeon(esgData.data);
+          break;
+        case "esg-matrix":
+          this.updateESGMatrixAccordeon(esgData.data);
+          break;
+        case "esg-ods":
+          this.updateESGODSAccordeon(esgData.data);
+          break;
+        case "esg-tcfd":
+          this.updateESGTCFDAccordeon(esgData.data);
+          break;
       }
     });
-
-    this.updateESGReportAccordeon(esgData);
-    this.updateESGAuditAccordeon(esgData);
-    this.updateESGInventoryAccordeon(esgData);
-    this.updateESGMatrixAccordeon(esgData);
-    this.updateESGODSAccordeon(esgData);
-    this.updateESGTCFDAccordeon(esgData);
   },
 
-  async updateCompanyContent(codCvm) {
-    try {
-      const data = await this.fetchCompanyData(codCvm);
-      const latestYear = Math.max(...Object.keys(data.dados_esg).map(Number));
-      const latestData = data.dados_esg[latestYear];
+  // Função para a seção "Quem é"
+  updateWhoIsSection(data) {
+    const resumoData = getLatestAvailableData(data, [
+      "dados_qualitativos",
+      "conteudo",
+      "atividades",
+      "resumo_geral",
+    ]);
 
-      // Atualiza o bloco "Quem é"
-      const whoIsSection = document.querySelector(
-        ".content-section:nth-child(1) .text-block"
-      );
+    const whoIsSection = document.querySelector(
+      ".content-section:nth-child(1) .text-block"
+    );
+
+    if (resumoData) {
       whoIsSection.innerHTML = `
-            <p>${latestData.dados_qualitativos.conteudo.atividades.resumo_geral}</p>
-        `;
+        <p>${resumoData.data}</p>
+        ${resumoData.needsYearBadge ? createYearBadge(resumoData.year) : ""}
+      `;
+    } else {
+      whoIsSection.innerHTML = `<p>Resumo não disponível.</p>`;
+    }
+  },
 
-      // Atualiza o grid de atividades
-      const activitiesGrid = document.querySelector(".activities-grid");
-      activitiesGrid.innerHTML =
-        latestData.dados_qualitativos.conteudo.atividades.atividades_principais
-          .map(
-            (activity) => `
+  // Função para a seção de atividades
+  updateActivitiesSection(data) {
+    const activitiesData = getLatestAvailableData(data, [
+      "dados_qualitativos",
+      "conteudo",
+      "atividades",
+      "atividades_principais",
+    ]);
+
+    const activitiesGrid = document.querySelector(".activities-grid");
+
+    if (activitiesData && activitiesData.data.length > 0) {
+      activitiesGrid.innerHTML = `
+        ${
+          activitiesData.needsYearBadge
+            ? createYearBadge(activitiesData.year)
+            : ""
+        }
+        <div class="activities-list">
+          ${activitiesData.data
+            .map(
+              (activity) => `
                 <div class="activity-card">
-                    <div class="activity-icon">
-                        <i class="ph ph-gear-fine"></i>
-                    </div>
-                    <h4 class="activity-title">${activity.descricao}</h4>
+                  <div class="activity-icon">
+                    <i class="ph ph-gear-fine"></i>
+                  </div>
+                  <h4 class="activity-title">${activity.descricao}</h4>
                 </div>
+              `
+            )
+            .join("")}
+        </div>
+      `;
+    } else {
+      activitiesGrid.innerHTML = `
+        <div class="activity-card">
+          <div class="activity-icon">
+            <i class="ph ph-info"></i>
+          </div>
+          <h4 class="activity-title">Atividades não disponíveis</h4>
+        </div>
+      `;
+    }
+  },
+
+  // Função para a seção de histórico
+  updateHistorySection(data) {
+    const historicData = getLatestAvailableData(data, [
+      "dados_qualitativos",
+      "conteudo",
+      "historico",
+      "marcos_historicos",
+    ]);
+
+    const historicSection = document.querySelector(
+      ".content-section:nth-child(3) .text-block"
+    );
+
+    if (historicData && historicData.data.length > 0) {
+      historicSection.innerHTML = `
+        <div class="history-header">
+          ${
+            historicData.needsYearBadge
+              ? createYearBadge(historicData.year)
+              : ""
+          }
+        </div>
+        <ul class="history-list">
+          ${historicData.data
+            .map(
+              (item) => `
+              <li>
+                <i class="ph-bold ph-calendar-check"></i>
+                <span>${item}</span>
+              </li>
             `
-          )
-          .join("");
+            )
+            .join("")}
+        </ul>
+      `;
+    } else {
+      historicSection.innerHTML = `<p>Histórico não disponível.</p>`;
+    }
+  },
 
-      // Atualiza a seção de histórico
-      const historicSection = document.querySelector(
-        ".content-section:nth-child(3) .text-block"
-      );
+  // Função para as informações de fundação
+  updateFoundationInfo(data) {
+    const foundationData = getLatestAvailableData(data, [
+      "dados_qualitativos",
+      "conteudo",
+      "historico",
+      "fundacao",
+    ]);
 
-      // Cria a lista de histórico
-      const historicos =
-        latestData.dados_qualitativos.conteudo.historico.marcos_historicos;
-      if (historicos && historicos.length > 0) {
-        historicSection.innerHTML = `
-                <ul class="history-list">
-                    ${historicos
-                      .map(
-                        (item) => `
-                        <li>
-                            <i class="ph-bold ph-calendar-check"></i>
-                            <span>${item}</span>
-                        </li>
-                    `
-                      )
-                      .join("")}
-                </ul>
-            `;
-      } else {
-        historicSection.innerHTML = `<p>Histórico não disponível.</p>`;
+    const infoBadges = document.querySelector(".info-badges");
+
+    if (
+      foundationData &&
+      foundationData.data &&
+      (foundationData.data.data || foundationData.data.local)
+    ) {
+      const badges = [];
+      const yearBadge =
+        foundationData.year <
+        Math.max(...Object.keys(data.dados_esg).map(Number))
+          ? createYearBadge(foundationData.year)
+          : "";
+
+      if (foundationData.data.data) {
+        badges.push(`
+          <span class="info-badge">
+            <i class="ph-bold ph-calendar-check"></i>
+            Fundação: ${foundationData.data.data}
+          </span>
+        `);
       }
 
-      // Atualiza as badges de histórico
-      const infoBadges = document.querySelector(".info-badges");
-      const fundacao =
-        latestData.dados_qualitativos.conteudo.historico.fundacao;
+      if (foundationData.data.local) {
+        badges.push(`
+          <span class="info-badge">
+            <i class="fa-solid fa-location-dot"></i>
+            ${foundationData.data.local}
+          </span>
+        `);
+      }
 
-      // Verifica se tem dados de fundação
-      if (fundacao && (fundacao.data || fundacao.local)) {
-        // Array para armazenar as badges que serão exibidas
-        const badges = [];
-
-        // Adiciona badge de data se houver
-        if (fundacao.data) {
-          badges.push(`
-                    <span class="info-badge">
-                        <i class="ph-bold ph-calendar-check"></i>
-                        Fundação: ${fundacao.data}
-                    </span>
-                `);
-        }
-
-        // Adiciona badge de local se houver
-        if (fundacao.local) {
-          badges.push(`
-                    <span class="info-badge">
-                        <i class="fa-solid fa-location-dot"></i>
-                        ${fundacao.local}
-                    </span>
-                `);
-        }
-
-        // Atualiza o HTML apenas se houver badges para mostrar
-        if (badges.length > 0) {
-          infoBadges.innerHTML = badges.join("");
-          infoBadges.style.display = "flex";
-        } else {
-          infoBadges.style.display = "none";
-        }
+      if (badges.length > 0) {
+        infoBadges.innerHTML = `
+          ${badges.join("")}
+          ${yearBadge}
+        `;
+        infoBadges.style.display = "flex";
       } else {
-        // Se não houver dados de fundação, oculta o container
         infoBadges.style.display = "none";
       }
-    } catch (error) {
-      console.error("Erro ao atualizar conteúdo:", error);
+    } else {
+      infoBadges.style.display = "none";
     }
   },
 

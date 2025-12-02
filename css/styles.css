@@ -1911,3 +1911,57 @@ a:active {
     font-size: 0.75rem; /* Reduz mais a fonte */
   }
 }
+
+.year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+  font-size: 0.8em;
+  color: #666;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.year-badge i {
+  font-size: 0.9em;
+}
+
+.esg-content-title .year-badge {
+  margin-top: -2px;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.partial-data-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  color: #f59e0b; /* cor de alerta */
+  font-size: 0.9em;
+}
+
+.partial-data-badge i {
+  font-size: 1.1em;
+}
+
+.status-active {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.status-inactive {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+}
+
+.status-indeterminate {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
